@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="Light_indigo">	#C5CAE9</color>
+    <color name="Like_indigo">#6366F1</color>
+    <color name="Like">#3F51F7</color>
+    <color name="Navy_blue">#0B2341</color>
+    <color name="Light_grey">#F5F5F5 </color>
+    <color name="Light_blue">#E6F2FF </color>
+    <color name="Textcolor">#0B2341</color>
+    <color name="green">#16921E</color>
+    <color name="red">#F60723</color>
+    <color name="Deep_Blue">#001C48</color>
+    <color name="Marine_Blue">#E0F7FA</color>
+    <color name="Medium_grey">#757575</color>
+    <color name="Text_color_blue">#0D47A1</color>
+    <color name="Alice_blue">#F2F6FF</color>
+    <color name="Hint_color1">#808080</color>
+</resources>

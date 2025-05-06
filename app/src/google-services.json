@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "674284682235",
+    "project_id": "instership-project",
+    "storage_bucket": "instership-project.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:674284682235:android:c69266a5e30e5d7bf0e95e",
+        "android_client_info": {
+          "package_name": "com.example.dummy"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA8WCqZMFG7J0M6mUQgs69Ux1dxsX6Z6-Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

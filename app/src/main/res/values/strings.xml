@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Dummy</string>
+    <string-array name="login_roles_array">
+        <item>Officer</item>
+        <item>Principal</item>
+        <item>Teacher</item>
+        <item>Warden</item>
+    </string-array>
+</resources>
