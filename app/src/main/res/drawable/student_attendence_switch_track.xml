@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- When switch is ON -->
+    <item android:state_checked="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/green" /> <!-- Light green track -->
+            <corners android:radius="50dp" />
+        </shape>
+    </item>
+
+    <!-- When switch is OFF -->
+    <item android:state_checked="false">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/green" /> <!-- Light grey track -->
+            <corners android:radius="50dp" />
+        </shape>
+    </item>
+
+</selector>

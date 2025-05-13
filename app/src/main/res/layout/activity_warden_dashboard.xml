@@ -32,7 +32,7 @@
                 android:id="@+id/dashboard_warden"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:constraint_referenced_ids="card1_Cooking_staff_attendence,card2_Cooking_staff_salary_warden,card3_Commodity_indent_warden,card4_Commodity_receipts,card5_Commodity_Utlization_warden,card6_Student_Health_Status_warden,card7_announcments_warden"
+                app:constraint_referenced_ids="card1_Cooking_staff_attendence,card2_Cooking_staff_salary_warden,card8_Cooking_Staff_user_add_warden,card3_Commodity_indent_warden,card4_Commodity_receipts,card5_Commodity_Utlization_warden,card6_Student_Health_Status_warden,card7_announcments_warden"
                 app:flow_wrapMode="aligned"
                 app:flow_horizontalGap="12dp"
                 app:flow_verticalGap="12dp"
@@ -246,38 +246,71 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
+<!--            <androidx.cardview.widget.CardView-->
+<!--            android:id="@+id/card5_Commodity_Utlization_warden"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:layout_constraintDimensionRatio="1:1"-->
+<!--            app:layout_constraintWidth_percent="0.4"-->
+<!--            app:cardCornerRadius="16dp"-->
+<!--            app:cardElevation="4dp"-->
+<!--            android:backgroundTint="@color/white"-->
+<!--            android:foreground="?attr/selectableItemBackground">-->
+
+<!--            <LinearLayout-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:gravity="center"-->
+<!--                android:orientation="vertical"-->
+<!--                android:padding="12dp">-->
+
+<!--                <ImageView-->
+<!--                    android:layout_width="80dp"-->
+<!--                    android:layout_height="80dp"-->
+<!--                    android:src="@drawable/commodity_utlization" />-->
+
+<!--                <TextView-->
+<!--                    android:layout_width="wrap_content"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:text="Commodity Utlization"-->
+<!--                    android:gravity="center"-->
+<!--                    android:textColor="@color/Textcolor"-->
+<!--                    android:textSize="18dp"-->
+<!--                    android:textStyle="bold"/>-->
+<!--            </LinearLayout>-->
+<!--            </androidx.cardview.widget.CardView>-->
             <androidx.cardview.widget.CardView
-            android:id="@+id/card5_Commodity_Utlization_warden"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            app:layout_constraintDimensionRatio="1:1"
-            app:layout_constraintWidth_percent="0.4"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="4dp"
-            android:backgroundTint="@color/white"
-            android:foreground="?attr/selectableItemBackground">
+                android:id="@+id/card8_Cooking_Staff_user_add_warden"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintDimensionRatio="1:1"
+                app:layout_constraintWidth_percent="0.4"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="4dp"
+                android:backgroundTint="@color/white"
+                android:foreground="?attr/selectableItemBackground">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="12dp">
-
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="80dp"
-                    android:src="@drawable/commodity_utlization" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Commodity Utlization"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:gravity="center"
-                    android:textColor="@color/Textcolor"
-                    android:textSize="18dp"
-                    android:textStyle="bold"/>
-            </LinearLayout>
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <ImageView
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:src="@drawable/commodity_utlization" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="cooking Staff add"
+                        android:gravity="center"
+                        android:textColor="@color/Textcolor"
+                        android:textSize="18dp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
         </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

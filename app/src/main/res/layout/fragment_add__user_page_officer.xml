@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Add_User_page_officer"
+    android:background="@drawable/background1">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="20dp">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="10dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/adduser_officer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="12dp"
+                android:text="Add New User"
+                android:textColor="@color/Textcolor"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/Employee_name_enter_officer"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:inputType="textCapCharacters"
+                android:background="@drawable/roundededittext_1"
+                android:hint="Employee Full Name"
+                android:padding="10dp"
+                android:textColorHint="@color/Medium_grey"
+                android:textColor="@color/black"/>
+            <EditText
+                android:id="@+id/Employee_age_enter_officer"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/roundededittext_1"
+                android:hint="Date of Birth "
+                android:inputType="datetime"
+                android:padding="10dp"
+                android:textColorHint="@color/Medium_grey"
+                android:textColor="@color/black"/>
+            <RadioGroup
+                android:id="@+id/Employee_Gender_enter_officer"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/roundededittext_1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Gender:"
+                    android:textSize="20dp"
+                    android:textColorHint="@color/Medium_grey"/>
+
+                <RadioButton
+                    android:id="@+id/Male_radiobutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male"
+                    android:textColor="@color/black"/>
+
+                <RadioButton
+                    android:id="@+id/Female_radiobutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Female"
+                    android:textColor="@color/black"/>
+
+                <RadioButton
+                    android:id="@+id/Others_radiobutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Others"
+                    android:textColor="@color/black"/>
+            </RadioGroup>
+            <Spinner
+                android:id="@+id/Employee_role_enter_officer"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/roundededittext_1"
+                android:dropDownSelector="@color/black"/>
+            <EditText
+                android:id="@+id/Employee_ID_enter_officer"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/roundededittext_1"
+                android:hint="Employee Id "
+                android:padding="10dp"
+                android:textColorHint="@color/Medium_grey"
+                android:textColor="@color/black"/>
+            <EditText
+                android:id="@+id/Employee_email_id_enter_officer"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/roundededittext_1"
+                android:hint="Email Id"
+                android:inputType="textCapCharacters"
+                android:padding="10dp"
+                android:textColorHint="@color/Medium_grey"
+                android:textColor="@color/black"/>
+            <EditText
+                android:id="@+id/Employee_mobile_number_enter_officer"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:inputType="textCapCharacters"
+                android:background="@drawable/roundededittext_1"
+                android:hint="Mobile Number"
+                android:padding="10dp"
+                android:textColorHint="@color/Medium_grey"
+                android:textColor="@color/black"/>
+
+
+            <EditText
+                android:id="@+id/Employee_joining_date_enter_officer"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/roundededittext_1"
+                android:hint="Joining Date"
+                android:inputType="phone"
+                android:padding="10dp"
+                android:textColorHint="@color/Medium_grey"
+                android:textColor="@color/black"/>
+            <EditText
+                android:id="@+id/Employee_address_add_officer"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/roundededittext_1"
+                android:hint="Address"
+                android:inputType="phone"
+                android:padding="10dp"
+                android:textColorHint="@color/Medium_grey"
+                android:textColor="@color/black"/>
+
+            <Button
+                android:id="@+id/submit_button"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20sp"
+                android:backgroundTint="@color/Deep_Blue"
+                android:text="Add Student"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</FrameLayout>

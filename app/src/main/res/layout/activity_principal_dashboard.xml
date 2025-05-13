@@ -19,7 +19,8 @@ android:layout_width="match_parent"
 android:layout_height="0dp"
 android:fillViewport="true"
 app:layout_constraintTop_toBottomOf="@id/toolbar_Principal"
-app:layout_constraintBottom_toBottomOf="parent">
+app:layout_constraintBottom_toBottomOf="parent"
+    android:layout_marginTop="10dp">
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -31,7 +32,7 @@ app:layout_constraintBottom_toBottomOf="parent">
         android:id="@+id/dashboard_principal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        app:constraint_referenced_ids="card1_Student_deatils_principal,card2_add_student_principal,card3_Timetable_Principal,card4_Post_announcments_Principal,card5_Student_health_records_principal,card6_Commodity_details_principal"
+        app:constraint_referenced_ids="card1_Student_deatils_principal,card2_add_student_principal,card3_Timetable_Principal,card4_Post_announcments_Principal,card5_Student_health_records_principal,card6_Commodity_details_principal,card7_View_announcements_principal"
         app:flow_wrapMode="aligned"
         app:flow_horizontalGap="12dp"
         app:flow_verticalGap="12dp"
@@ -243,7 +244,46 @@ app:layout_constraintBottom_toBottomOf="parent">
                 android:textStyle="bold"/>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card7_View_announcements_principal"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintWidth_percent="0.4"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="4dp"
+        android:backgroundTint="@color/white"
+        android:foreground="?attr/selectableItemBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:src="@drawable/announcement_icon_" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Announcements"
+                android:gravity="center"
+                android:textColor="@color/Textcolor"
+                android:textSize="16dp"
+                android:textStyle="bold"/>
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
 </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
+    <FrameLayout
+        android:id="@+id/Add_student_frame_principal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/toolbar_Principal"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

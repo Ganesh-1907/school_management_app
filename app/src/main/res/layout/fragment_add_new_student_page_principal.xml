@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".Add_new_student_page_principal"
+    android:background="@drawable/background1">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="30dp">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="10dp">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        android:padding="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="@color/white"
+        android:layout_marginTop="40dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/addStudent_principal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="12dp"
+                android:text="Add New Student"
+                android:textColor="@color/Textcolor"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/student_name_enter_principal"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:inputType="textCapCharacters"
+                android:background="@drawable/roundededittext_1"
+                android:hint="Full Name"
+                android:padding="10dp"
+                android:textColorHint="@color/Medium_grey"
+                android:textColor="@color/black"/>
+            <EditText
+                android:id="@+id/Student_age_enter_principal"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/roundededittext_1"
+                android:hint=" Date Of Birth "
+                android:inputType="datetime"
+                android:padding="10dp"
+                android:textColorHint="@color/Medium_grey"
+                android:textColor="@color/black"/>
+            <RadioGroup
+                android:id="@+id/Student_Gender_enter_principal"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/roundededittext_1"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Gender:"
+                    android:textSize="20dp"
+                    android:textColorHint="@color/Medium_grey"/>
+
+                <RadioButton
+                    android:id="@+id/Male_radiobutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male"
+                    android:textColor="@color/black"/>
+
+                <RadioButton
+                    android:id="@+id/Female_radiobutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Female"
+                    android:textColor="@color/black"/>
+
+                <RadioButton
+                    android:id="@+id/Others_radiobutton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Others"
+                    android:textColor="@color/black"/>
+            </RadioGroup>
+            <Spinner
+                android:id="@+id/Student_class_enter_principal"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/roundededittext_1" />
+            <EditText
+                android:id="@+id/Student_ID"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/roundededittext_1"
+                android:hint="Student Id "
+                android:inputType=""
+                android:padding="10dp"
+                android:textColorHint="@color/Medium_grey"
+                android:textColor="@color/black"/>
+            <EditText
+                android:id="@+id/School_ID_Enter_officer"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/roundededittext_1"
+                android:hint="School Id "
+                android:inputType=""
+                android:padding="10dp"
+                android:textColorHint="@color/Medium_grey"
+                android:textColor="@color/black"/>
+            <EditText
+                android:id="@+id/student_father_name_enter_principal"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/roundededittext_1"
+                android:hint="Father  Name"
+                android:inputType="textCapCharacters"
+                android:padding="10dp"
+                android:textColorHint="@color/Medium_grey"
+                android:textColor="@color/black"/>
+            <EditText
+                android:id="@+id/student_mother_name_enter_principal"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:inputType="textCapCharacters"
+                android:background="@drawable/roundededittext_1"
+                android:hint="Mother Name"
+                android:padding="10dp"
+                android:textColorHint="@color/Medium_grey"
+                android:textColor="@color/black"/>
+            <Spinner
+                android:id="@+id/Student_caste_enter_principal"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:background="@drawable/roundededittext_1" />
+
+
+            <EditText
+                android:id="@+id/student_parent_phoneNumber_enter_principal"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/roundededittext_1"
+                android:hint="Parent Phone Number"
+                android:inputType="phone"
+                android:padding="10dp"
+                android:textColorHint="@color/Medium_grey"
+                android:textColor="@color/black"/>
+            <EditText
+                android:id="@+id/address_student_enter_principal"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/roundededittext_1"
+                android:hint="Address"
+                android:inputType="phone"
+                android:padding="10dp"
+                android:textColorHint="@color/Medium_grey"
+                android:textColor="@color/black"/>
+
+            <Button
+                android:id="@+id/add_student_submit_button_principal"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:layout_marginTop="20sp"
+                android:backgroundTint="@color/Deep_Blue"
+                android:text="Add Student"
+                android:textColor="@color/white" />
+
+        </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
