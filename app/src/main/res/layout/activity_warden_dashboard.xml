@@ -32,7 +32,7 @@
                 android:id="@+id/dashboard_warden"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                app:constraint_referenced_ids="card1_Cooking_staff_attendence,card2_Cooking_staff_salary_warden,card8_Cooking_Staff_user_add_warden,card3_Commodity_indent_warden,card4_Commodity_receipts,card5_Commodity_Utlization_warden,card6_Student_Health_Status_warden,card7_announcments_warden"
+                app:constraint_referenced_ids="card1_Cooking_staff_attendence,card2_Cooking_staff_salary_warden,card8_Cooking_Staff_user_add_warden,card3_Commodity_indent_warden,card4_Commodity_receipts,card6_Student_Health_Status_warden,card7_announcments_warden"
                 app:flow_wrapMode="aligned"
                 app:flow_horizontalGap="12dp"
                 app:flow_verticalGap="12dp"

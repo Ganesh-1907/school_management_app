@@ -28,7 +28,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="30dp"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="50dp"
             android:text="Rice Indent"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -37,7 +37,7 @@
                 android:id="@+id/allocated_message1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Allocated : "
+                android:text="Phase 1 : "
                 app:layout_constraintTop_toBottomOf="@id/xx1"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="20dp"
@@ -59,14 +59,14 @@
                 android:id="@+id/used_message1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Used : "
+                android:text=" Phase 2 : "
                 app:layout_constraintTop_toBottomOf="@id/allocated_message1"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="20dp"
                 android:textSize="30dp"
                 android:textColor="@color/Medium_grey"
                 android:textStyle="bold"
-                android:layout_marginStart="20dp"/>
+                android:layout_marginStart="10dp"/>
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="40dp"
@@ -82,7 +82,7 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintTop_toBottomOf="@id/used_message1"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="30dp"
+                android:layout_marginStart="10dp"
                 android:layout_marginTop="15dp"
                 android:text="Egg Indent"
                 android:textSize="30sp"
@@ -92,7 +92,7 @@
                 android:id="@+id/allocated_message2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Allocated : "
+                android:text="Phase 1 : "
                 app:layout_constraintTop_toBottomOf="@id/xx2"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="20dp"
@@ -114,14 +114,14 @@
                 android:id="@+id/used_message2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Used : "
+                android:text=" Phase 2 : "
                 app:layout_constraintTop_toBottomOf="@id/allocated_message2"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="20dp"
                 android:textSize="30dp"
                 android:textColor="@color/Medium_grey"
                 android:textStyle="bold"
-                android:layout_marginStart="20dp"/>
+                android:layout_marginStart="10dp"/>
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="40dp"
@@ -147,7 +147,7 @@
                 android:id="@+id/allocated_message3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Allocated : "
+                android:text="Phase 1 : "
                 app:layout_constraintTop_toBottomOf="@id/xx3"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="20dp"
@@ -169,14 +169,14 @@
                 android:id="@+id/used_message3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text=" Used : "
+                android:text=" Phase 2 : "
                 app:layout_constraintTop_toBottomOf="@id/allocated_message3"
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginTop="20dp"
                 android:textSize="30dp"
                 android:textColor="@color/Medium_grey"
                 android:textStyle="bold"
-                android:layout_marginStart="20dp"/>
+                android:layout_marginStart="10dp"/>
             <EditText
                 android:layout_width="0dp"
                 android:layout_height="40dp"
@@ -191,11 +191,22 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="20sp"
                 android:backgroundTint="@color/Deep_Blue"
-                android:text="Add Student"
+                android:text="Submit"
                 android:textColor="@color/white"
                 app:layout_constraintTop_toBottomOf="@id/used_message3"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
+            <Spinner
+                android:id="@+id/Spinner_month_cooking_staff_attendenceentry_warden"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="30dp"
+                android:background="@drawable/roundededittextnavybluestroke_2"
+                app:layout_constraintHorizontal_chainStyle="packed"
+                 />
 
 
 

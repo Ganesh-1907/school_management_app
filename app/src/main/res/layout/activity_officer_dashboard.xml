@@ -140,6 +140,15 @@
                 android:textColor="@color/Textcolor"
                 android:textSize="20dp"
                 android:textStyle="bold"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="School Details"
+                android:textColor="@color/Textcolor"
+                android:textSize="20dp"
+                android:textStyle="bold" />
         </LinearLayout>
     </androidx.cardview.widget.CardView>
             <!-- School Details Card -->
@@ -165,15 +174,15 @@
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:src="@drawable/school_svgrepo_com" />
-
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="School Details"
                 android:gravity="center"
                 android:textColor="@color/Textcolor"
-                android:textSize="20dp"
+                android:textSize="16dp"
                 android:textStyle="bold"/>
+
         </LinearLayout>
     </androidx.cardview.widget.CardView>
             <!-- Student health record -->
@@ -203,7 +212,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Student Health records"
+                android:text="Student Health Records"
                 android:gravity="center"
                 android:textColor="@color/Textcolor"
                 android:textSize="16dp"
