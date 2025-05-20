@@ -3,6 +3,7 @@ import { addOfficer, addSchools } from "./components/manual-creation-script.js";
 import { getSchoolById, getSchoolByName, getSchools, mapSchoolWithUser } from "./components/school.js";
 import { createUser, fetchUsersNotInSchool, getUserByEmail, getUserById, getUsers, loginUser } from "./components/user.js";
 import { UserRole } from "./utils/enums.js";
+import { getStudentsHealth, setStudentHealth } from "./components/student.js";
 
 const app = express();
 app.use(express.json());
@@ -74,6 +75,20 @@ app.get('/fetch-users-not-in-school', async (req, res) => {
 app.post('/map-school-with-user', async (req, res) => {
     const { schoolId, userId, role } = req.body;
     const result = await mapSchoolWithUser(schoolId, userId, role);
+    res.send(result);
+});
+
+// student health routes
+app.get('/get-students-health/:schoolId', async (req, res) => {
+    const { schoolId } = req.params;
+    console.log("schoolId", schoolId);
+    const result = await getStudentsHealth(schoolId);
+    res.send(result);
+});
+
+app.post('/set-student-health', async (req, res) => {
+    const { studentId, schoolId, healthStatus } = req.body;
+    const result = await setStudentHealth(studentId, schoolId, healthStatus);
     res.send(result);
 });
 

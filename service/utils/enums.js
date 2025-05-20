@@ -5,3 +5,10 @@ export const UserRole = {
     STUDENT: 'student',
     WARDEN: 'warden',
 };
+
+export const StudentHealthStatus = {
+    HEALTHY: 'healthy',
+    SICK: 'sick',
+    RECOVERING: 'recovering',
+    CRITICAL: 'critical',
+}
