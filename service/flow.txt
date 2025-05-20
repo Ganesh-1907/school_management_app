@@ -1,6 +1,6 @@
 officer dashboard {
-    map schools
-    add user
+    map schools done
+    add user done
     school commodity
     school details
     student health records

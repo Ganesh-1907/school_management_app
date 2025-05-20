@@ -1,8 +1,8 @@
 import { db } from "../configs/firebase-config.js";
 
-export const getUsers = async () => {
+export const getUsers = async (role) => {
     try {
-        const snapshot = await db.collection("users").get();
+        const snapshot = await db.collection("users").where("role", "==", role).get();
         const users = [];
         snapshot.forEach((doc) => {
             users.push({ id: doc.id, ...doc.data() });
@@ -79,7 +79,7 @@ export const createUser = async (userData) => {
         await db.collection("users").doc().set({
             name: userData.name,
             email: userData.email,
-            role: UserRole.OFFICER,
+            role: userData.role,
             password: userData.password,
             phone: userData.phone,
             address: userData.address,
@@ -94,3 +94,29 @@ export const createUser = async (userData) => {
         return `Error creating user: ${error.message}`;
     }
 }
+
+export const fetchUsersNotInSchool = async () => {
+    try {
+        const schoolSnapshot = await db.collection("users-school").get();
+        const schoolUserIds = new Set();
+        schoolSnapshot.forEach(doc => {
+            const data = doc.data();
+            if (data.userId) {
+                schoolUserIds.add(data.userId);
+            }
+        });
+        const usersSnapshot = await db.collection("users").get();
+        const usersNotInSchool = [];
+        usersSnapshot.forEach(doc => {
+            const userData = doc.id;
+            if (!schoolUserIds.has(userData)) {
+                usersNotInSchool.push({ id: doc.id, ...doc.data() });
+            }
+        });
+        console.log("Users not in any school:", usersNotInSchool);
+        return usersNotInSchool;
+    } catch (error) {
+        console.error("Error fetching users not in school:", error);
+        return null;
+    }
+};
