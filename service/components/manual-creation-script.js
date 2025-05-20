@@ -10,6 +10,7 @@ export const addOfficer = async () => {
             name: "Officer Name",
             email: emailToFind,
             role: UserRole.OFFICER,
+            password: "1234567890",
             phone: "1234567890",
             address: "123 Officer St, City, Country",
             dateOfBirth: "1990-01-01",

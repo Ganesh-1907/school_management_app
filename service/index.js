@@ -1,4 +1,4 @@
-import { createUser, getUserByEmail, getUserById, getUsers } from "./components/user.js";
+import { createUser, getUserByEmail, getUserById, getUsers, loginUser } from "./components/user.js";
 import { addOfficer, addSchools } from "./components/manual-creation-script.js";
 import express from "express";
 
@@ -12,6 +12,16 @@ addSchools();
 app.get('/get-users', async (req, res) => {
     const result = await getUsers()
     res.send(result);
+});
+
+app.get('/login', async (req, res) => {
+    const { email, password } = req.body;
+    const result = await loginUser(email, password);
+    if (result) {
+        res.send({ message: "Login successful", user: result });
+    } else {
+        res.status(401).send({ message: "Invalid credentials" });
+    }
 });
 
 app.get('/get-user/:userId', async (req, res) => {
