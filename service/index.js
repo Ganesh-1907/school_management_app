@@ -66,7 +66,6 @@ app.get('/get-school-by-name/:schoolName', async (req, res) => {
 });
 
 // school-user mapping
-
 app.get('/fetch-users-not-in-school', async (req, res) => {
     const result = await fetchUsersNotInSchool();
     res.send(result);

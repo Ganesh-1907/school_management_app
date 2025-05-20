@@ -80,7 +80,7 @@ export const createUser = async (userData) => {
             name: userData.name,
             email: userData.email,
             role: userData.role,
-            password: userData.password,
+            password: userData.phone,
             phone: userData.phone,
             address: userData.address,
             dateOfBirth: userData.dateOfBirth,
