@@ -13,6 +13,8 @@ export const addOfficer = async () => {
             phone: "1234567890",
             address: "123 Officer St, City, Country",
             dateOfBirth: "1990-01-01",
+            gender: "Male",
+            joiningDate: "2023-01-01",
         });
         console.log("User inserted with ID:", docRef.id);
     }

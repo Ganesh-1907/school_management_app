@@ -1,0 +1,38 @@
+officer dashboard {
+    map schools
+    add user
+    school commodity
+    school details
+    student health records
+}
+
+principal dashboard {
+    student details
+    add student
+    time table
+    post announcemets
+    student health records
+    commodity details
+    announcemets
+}
+
+teacher dashboard {
+    mark student attendance
+    entere student marks
+    time table
+    announcemets
+    student health monitring
+    student details
+}
+
+warden dashboard {
+    cooking staff attendance
+    staff salry
+    cooking staff add
+    commodity indent
+    commodity recipts
+    student health status
+}
+
+ccokin attendance -> name prsent absent
+
