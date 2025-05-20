@@ -31,19 +31,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         android:fontFamily="sans-serif-medium"
         android:textColor="#0B2341"/>
-    <Spinner
-        android:id="@+id/roles_select_spinner_login_page"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintWidth_percent="0.8"
-        app:layout_constraintHeight_percent="0.08"
-        android:background="@drawable/edit_text_backfround_loginpage"
-        android:padding="12dp"
-        android:layout_marginTop="16dp"
-        android:spinnerMode="dropdown"
-        app:layout_constraintTop_toBottomOf="@id/login_text"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <EditText
         android:id="@+id/username_edit_text_login"
@@ -51,12 +38,12 @@
         android:layout_height="0dp"
         app:layout_constraintWidth_percent="0.8"
         app:layout_constraintHeight_percent="0.08"
-        app:layout_constraintTop_toBottomOf="@id/roles_select_spinner_login_page"
+        app:layout_constraintTop_toBottomOf="@id/login_text"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="10dp"
         android:background="@drawable/edit_text_backfround_loginpage"
-        android:hint="Username"
+        android:hint="Email"
         android:textColorHint="@color/Hint_color1"
         android:textColor="@color/black"
         android:drawableStart="@drawable/profile_jmms"
