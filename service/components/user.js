@@ -14,6 +14,28 @@ export const getUsers = async () => {
     }
 }
 
+export const loginUser = async (email, password) => {
+    try {
+        const snapshot = await db.collection("users").where("email", "==", email).get();
+        if (snapshot.empty) {
+            console.log(`User with email ${email} not found.`);
+            return null;
+        }
+        let user = null;
+        snapshot.forEach((doc) => {
+            user = { id: doc.id, ...doc.data() };
+        });
+        if (user.password !== password) {
+            console.log("Invalid password.");
+            return null;
+        }
+        return user;
+    } catch (error) {
+        console.error("Error logging in user:", error);
+        return null;
+    }
+}
+
 export const getUserById = async (userId) => {
     try {
         const doc = await db.collection("users").doc(userId).get();
@@ -57,14 +79,14 @@ export const createUser = async (userData) => {
         await db.collection("users").doc().set({
             name: userData.name,
             email: userData.email,
-            role: userData.role,
-            schoolCode: userData.schoolCode,
-            schoolName: userData.schoolName,
-            schoolAddress: userData.schoolAddress,
-            schoolPhone: userData.schoolPhone,
-            schoolEmail: userData.schoolEmail,
+            role: UserRole.OFFICER,
+            password: userData.password,
+            phone: userData.phone,
+            address: userData.address,
+            dateOfBirth: userData.dateOfBirth,
+            gender: userData.gender,
+            joiningDate: userData.joiningDate,
         });
-
         console.log(`User ${userData.name} created successfully!`);
         return `User ${userData.name} created successfully!`;
     } catch (error) {
