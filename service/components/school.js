@@ -68,3 +68,51 @@ export const mapSchoolWithUser = async (schoolId, userId, role) => {
         console.error("Error mapping school with user:", error);
     }
 }
+
+export const addCommodity = async (schoolId, month, phase1, phase2, title) => {
+    try {
+        const snapshot = await db.collection("commodities").where("schoolId", "==", schoolId).where("month", "==", month).where("title", "==", title).get();
+        if (!snapshot.empty) {
+            const updateDoc = snapshot.docs[0];
+            await db.collection("commodities").doc(updateDoc.id).update({
+                phase1: phase1,
+                phase2: phase2,
+                updatedAt: new Date().toISOString()
+            });
+            console.log("Commodity updated successfully:", updateDoc.id);
+            return updateDoc.id;
+        }
+        const docRef = await db.collection("commodities").add({
+            schoolId: schoolId,
+            month: month,
+            phase1: phase1,
+            phase2: phase2,
+            title: title,
+            createdAt: new Date().toISOString()
+        });
+        console.log("Commodity added successfully:", docRef.id);
+        return docRef.id;
+    } catch (error) {
+        console.error("Error adding commodity:", error);
+        return null;
+    }
+}
+
+export const getCommodity = async (schoolId, month) => {
+    try {
+        const snapshot = await db.collection("commodities").where("schoolId", "==", schoolId).where("month", "==", month).get();
+        if (snapshot.empty) {
+            console.log(`Commodity with school ID ${schoolId} and month ${month} not found.`);
+            return null;
+        }
+        let commodity = [];
+        snapshot.forEach((doc) => {
+            commodity.push({ id: doc.id, ...doc.data() });
+        });
+        // console.log("Commodity fetched successfully:", commodity);
+        return commodity;
+    } catch (error) {
+        console.error("Error fetching commodity:", error);
+        return null;
+    }
+}

@@ -33,3 +33,9 @@ export interface SchoolUserMapping {
     userId: string;
     role: string;
 }
+
+export interface Commodity {
+    title: string;
+    phase1: number;
+    phase2: number;
+}
