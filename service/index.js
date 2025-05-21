@@ -25,7 +25,7 @@ app.post('/add-user', async (req, res) => {
     res.send(result);
 })
 
-app.get('/login', async (req, res) => {
+app.post('/login', async (req, res) => {
     const { email, password } = req.body;
     const result = await loginUser(email, password);
     if (result) {

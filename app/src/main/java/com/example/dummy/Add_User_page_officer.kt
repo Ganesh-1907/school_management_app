@@ -1,59 +1,105 @@
 package com.example.dummy
 
+import android.app.DatePickerDialog
 import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.util.Log
+import android.widget.*
+import androidx.appcompat.app.AppCompatActivity
+import com.example.dummy.R
+import java.util.*
+import okhttp3.*
+import okhttp3.MediaType.Companion.parse
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import org.json.JSONObject
+import java.io.IOException
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [Add_User_page_officer.newInstance] factory method to
- * create an instance of this fragment.
- */
-class Add_User_page_officer : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+class Add_User_page_officer : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
+        setContentView(R.layout.fragment_add_user_page_officer)
+
+        val name = findViewById<EditText>(R.id.Employee_name_enter_officer)
+        val dob = findViewById<EditText>(R.id.Employee_age_enter_officer)
+        val genderGroup = findViewById<RadioGroup>(R.id.Employee_Gender_enter_officer)
+        val role = findViewById<Spinner>(R.id.Employee_role_enter_officer)
+        val email = findViewById<EditText>(R.id.Employee_email_id_enter_officer)
+        val mobile = findViewById<EditText>(R.id.Employee_mobile_number_enter_officer)
+        val joiningDate = findViewById<EditText>(R.id.Employee_joining_date_enter_officer)
+        val address = findViewById<EditText>(R.id.Employee_address_add_officer)
+        val submitBtn = findViewById<Button>(R.id.submit_button)
+
+        // Setup Spinner
+        val roles = listOf("Select Role", "Principal", "Teacher", "Warden")
+        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, roles)
+        role.adapter = adapter
+
+        // Show Date Picker Dialog for DOB
+        dob.setOnClickListener {
+            showDatePicker(dob)
         }
-    }
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_add__user_page_officer, container, false)
-    }
+        // Show Date Picker Dialog for Joining Date
+        joiningDate.setOnClickListener {
+            showDatePicker(joiningDate)
+        }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment Add_User_page_officer.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            Add_User_page_officer().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+
+        submitBtn.setOnClickListener {
+            val selectedGenderId = genderGroup.checkedRadioButtonId
+            val selectedGender = findViewById<RadioButton>(selectedGenderId)?.text.toString()
+
+            val jsonBody = JSONObject()
+            jsonBody.put("name", name.text.toString())
+            jsonBody.put("email", email.text.toString())
+            jsonBody.put("role", role.selectedItem.toString())
+//            jsonBody.put("password", "default123") // Replace with user input if needed
+            jsonBody.put("phone", mobile.text.toString())
+            jsonBody.put("address", address.text.toString())
+            jsonBody.put("dateOfBirth", dob.text.toString())
+            jsonBody.put("gender", selectedGender)
+            jsonBody.put("joiningDate", joiningDate.text.toString())
+
+            val JSON = "application/json; charset=utf-8".toMediaTypeOrNull()
+            val body = RequestBody.create(JSON, jsonBody.toString())
+
+            // 👇 Access localhost on your computer from the Android Emulator
+            val request = Request.Builder()
+                .url("http://10.0.2.2:3000/add-user")
+                .post(body)
+                .build()
+
+            val client = OkHttpClient()
+
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+                    runOnUiThread {
+                        Toast.makeText(this@Add_User_page_officer, "Failed: ${e.message}", Toast.LENGTH_LONG).show()
+                    }
                 }
-            }
+
+                override fun onResponse(call: Call, response: Response) {
+                    val res = response.body?.string()
+                    runOnUiThread {
+                        Toast.makeText(this@Add_User_page_officer, "Response: $res", Toast.LENGTH_LONG).show()
+                    }
+                }
+            })
+        }
+
+    }
+
+    private fun showDatePicker(editText: EditText) {
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        val dpd = DatePickerDialog(this, { _, y, m, d ->
+            val selectedDate = "${"%02d".format(d)}/${"%02d".format(m + 1)}/$y"
+            editText.setText(selectedDate)
+        }, year, month, day)
+
+        dpd.show()
     }
 }
