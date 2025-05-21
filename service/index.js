@@ -1,9 +1,9 @@
 import express from "express";
 import { addOfficer, addSchools } from "./components/manual-creation-script.js";
-import { getSchoolById, getSchoolByName, getSchools, mapSchoolWithUser } from "./components/school.js";
+import { addCommodity, getCommodity, getSchoolById, getSchoolByName, getSchools, mapSchoolWithUser } from "./components/school.js";
 import { createUser, fetchUsersNotInSchool, getUserByEmail, getUserById, getUsers, loginUser } from "./components/user.js";
 import { UserRole } from "./utils/enums.js";
-import { getStudentsHealth, setStudentHealth } from "./components/student.js";
+import { addStudent, getStudentsHealth, setStudentHealth } from "./components/student.js";
 
 const app = express();
 app.use(express.json());
@@ -48,6 +48,11 @@ app.get('/get-user-by-email/:email', async (req, res) => {
 });
 
 // school routes
+app.get('/add-student', async (req, res) => {
+    const result = await addStudent(req.body);
+    res.send(result);
+});
+
 app.get('/get-schools', async (req, res) => {
     const result = await getSchools();
     res.send(result);
@@ -89,6 +94,20 @@ app.get('/get-students-health/:schoolId', async (req, res) => {
 app.post('/set-student-health', async (req, res) => {
     const { studentId, schoolId, healthStatus } = req.body;
     const result = await setStudentHealth(studentId, schoolId, healthStatus);
+    res.send(result);
+});
+
+// student comodity routes
+app.get('/get-students-commodity/:schoolId/:month', async (req, res) => {
+    const { schoolId, month } = req.params;
+    console.log("schoolId", schoolId, "month", month);
+    const result = await getCommodity(schoolId, month);
+    res.send(result);
+});
+
+app.post('/set-student-commodity', async (req, res) => {
+    const { schoolId, month, phase1, phase2, title } = req.body;
+    const result = await addCommodity(schoolId, month, phase1, phase2, title);
     res.send(result);
 });
 

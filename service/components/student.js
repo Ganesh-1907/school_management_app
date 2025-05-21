@@ -1,5 +1,38 @@
 import { db } from "../configs/firebase-config.js";
 
+export const addStudent = async (userData) => {
+    try {
+        const existUser = await db.collection("users").where("email", "==", userData.email).get();
+        if (!existUser.empty) {
+            console.log(`User with email ${userData.email} already exists.`);
+            return `User with email ${userData.email} already exists.`;
+        }
+        await db.collection("users").doc().set({
+            name: userData.name,
+            email: userData.email,
+            role: userData.role,
+            password: userData.phone,
+            class: userData.class,
+            phone: userData.phone,
+            address: userData.address,
+            dateOfBirth: userData.dateOfBirth,
+            gender: userData.gender,
+            joiningDate: userData.joiningDate,
+        });
+        await db.collection('users-school').doc().set({
+            schoolId: userData.schoolId,
+            userId: userData.userId,
+            role: userData.role,
+            joinedAt: new Date().toISOString()
+        });
+        console.log(`User ${userData.name} created successfully!`);
+        return `User ${userData.name} created successfully!`;
+    } catch (error) {
+        console.error("Error creating user:", error);
+        return `Error creating user: ${error.message}`;
+    }
+}
+
 export const getStudentsHealth = async (schoolId) => {
     try {
         const snapshot = await db.collection("students-health").where("schoolId", "==", schoolId).get();
