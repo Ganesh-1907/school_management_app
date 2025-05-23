@@ -23,11 +23,19 @@ class SchoolListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_school_list)
 
+        val source = intent.getStringExtra("source") ?: "default"
+
         recyclerView = findViewById(R.id.schoolRecyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
+        val intent = when (source) {
+            "map" -> Intent(this, SchoolMapping::class.java)
+            "commodities" -> Intent(this, SchoolCommodityActivity::class.java)
+            "school" -> Intent(this, SchoolDetailActivity::class.java)
+            "reports" -> Intent(this, HealthReportsActivity::class.java)
+            else -> Intent(this, SchoolDetailActivity::class.java) // fallback
+        }
         schoolAdapter = SchoolAdapter(schools) { selectedSchool ->
-            val intent = Intent(this, SchoolDetailActivity::class.java)
             intent.putExtra("schoolId", selectedSchool.id)
             startActivity(intent)
         }

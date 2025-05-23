@@ -29,6 +29,12 @@
             android:exported="false" />
         <activity android:name=".SchoolDetailActivity"
             android:exported="false" />
+        <activity android:name=".SchoolCommodityActivity"
+            android:exported="false" />
+        <activity android:name=".HealthReportsActivity"
+            android:exported="false" />
+        <activity android:name=".SchoolMapping"
+            android:exported="false" />
 
 
         <activity

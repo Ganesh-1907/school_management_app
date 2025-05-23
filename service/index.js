@@ -61,6 +61,7 @@ app.get('/get-schools', async (req, res) => {
 // getSchoolById("ARKT333rVPpY2ZAtej6h")
 app.get('/get-school/:schoolId', async (req, res) => {
     const schoolId = req.params.schoolId;
+    console.log(schoolId,'schoolID man')
     const result = await getSchoolById(schoolId);
     res.send(result);
 });
@@ -98,10 +99,11 @@ app.post('/set-student-health', async (req, res) => {
 });
 
 // student comodity routes
-app.get('/get-students-commodity/:schoolId/:month', async (req, res) => {
-    const { schoolId, month } = req.params;
-    console.log("schoolId", schoolId, "month", month);
-    const result = await getCommodity(schoolId, month);
+app.get('/get-students-commodity/:schoolId/', async (req, res) => {
+    const { schoolId } = req.params;
+    console.log("schoolId", schoolId);
+    const result = await getCommodity(schoolId);
+    console.log(result,'result')
     res.send(result);
 });
 

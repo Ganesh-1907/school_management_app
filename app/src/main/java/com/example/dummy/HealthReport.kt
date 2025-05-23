@@ -1,4 +1,7 @@
-package com.example.dummy
+// models/HealthReport.kt
+package com.example.dummy.models
 
-class HealthReport {
-}
+data class HealthReport(
+    val userName: String,
+    val healthStatus: String
+)

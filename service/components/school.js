@@ -98,11 +98,11 @@ export const addCommodity = async (schoolId, month, phase1, phase2, title) => {
     }
 }
 
-export const getCommodity = async (schoolId, month) => {
+export const getCommodity = async (schoolId) => {
     try {
-        const snapshot = await db.collection("commodities").where("schoolId", "==", schoolId).where("month", "==", month).get();
+        const snapshot = await db.collection("commodities").where("schoolId", "==", schoolId).get();
         if (snapshot.empty) {
-            console.log(`Commodity with school ID ${schoolId} and month ${month} not found.`);
+            // console.log(`Commodity with school ID ${schoolId} and month ${month} not found.`);
             return null;
         }
         let commodity = [];

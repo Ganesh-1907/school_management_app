@@ -24,7 +24,7 @@ class Officer_dashboard : AppCompatActivity() {
         val mapSchoolsCard = findViewById<androidx.cardview.widget.CardView>(R.id.card1_mapschools_officer)
         mapSchoolsCard.setOnClickListener {
             val intent = Intent(this, SchoolListActivity::class.java)
-            intent.putExtra("source", "amp")
+            intent.putExtra("source", "map")
             startActivity(intent)
         }
 
