@@ -128,11 +128,13 @@ export const staffDetails = async (schoolId) => {
         const principal = staffDetails.find(staff => staff.role === 'Principal');
         const warden = staffDetails.find(staff => staff.role === 'Warden');
         const teachers = staffDetails.filter(staff => staff.role === 'Teacher');
+        const cookingStaff = staffDetails.filter(staff => staff.role === 'Cooking');
 
         return [
             ...(principal ? [principal] : []),
             ...teachers,
-            ...(warden ? [warden] : [])
+            ...(warden ? [warden] : []),
+            ...(cookingStaff.length > 0 ? cookingStaff : [])
         ];
     } catch (error) {
         console.error("Error fetching staff details:", error);

@@ -18,7 +18,7 @@ principal dashboard {
 
 teacher dashboard {
     mark student attendance (done)
-    enter student marks
+    enter student marks (done)
     time table
     announcemets (done)
     student health monitring (done)
@@ -27,9 +27,9 @@ teacher dashboard {
 
 warden dashboard {
     cooking staff attendance (done)
-    staff salry
-    cooking staff add
-    commodity indent
+    staff salry 
+    cooking staff add (done)
+    commodity indent (done)
     commodity recipts (done)
     student health status (done)
 }
