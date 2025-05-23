@@ -141,3 +141,49 @@ export const staffDetails = async (schoolId) => {
         return null;
     }
 }
+
+export const addStaffSalary = async (schoolId, userId, salary, issueDate) => {
+    try {
+        const snapshot = await db.collection("users-school").where("userId", "==", userId).where("schoolId", "==", schoolId).get();
+        if (snapshot.empty) {
+            console.log(`User with ID ${userId} not found in school ${schoolId}.`);
+            return null;
+        }
+        const checkSnapshot = await db.collection("staff-salary").where("userId", "==", userId).where("schoolId", "==", schoolId).where("issueDate", "==", issueDate).get();
+        if (!checkSnapshot.empty) {
+            console.log(`Salary already issued for user ${userId} in school ${schoolId} on ${issueDate}.`);
+            return null;
+        }
+        const docRef = await db.collection("staff-salary").add({
+            schoolId: schoolId,
+            userId: userId,
+            salary: salary,
+            issueDate: issueDate,
+            createdAt: new Date().toISOString()
+        });
+        console.log("Staff salary added successfully:", docRef.id);
+        return docRef.id;
+    } catch (error) {
+        console.error("Error adding staff salary:", error);
+        return null;
+    }
+}
+
+export const getStaffSalary = async (schoolId) => {
+    try {
+        const snapshot = await db.collection("staff-salary").where("schoolId", "==", schoolId).get();
+        if (snapshot.empty) {
+            console.log(`No staff salary found for school ID ${schoolId}.`);
+            return null;
+        }
+        let staffSalary = [];
+        await Promise.all(snapshot.docs.map(async (doc) => {
+            const userData = await db.collection("users").doc(doc.data().userId).get();
+            staffSalary.push({ id: doc.id, ...doc.data(), name: userData.data().name, email: userData.data().email, phone: userData.data().phone });
+        }));
+        return staffSalary;
+    } catch (error) {
+        console.error("Error fetching staff salary:", error);
+        return null;
+    }
+}

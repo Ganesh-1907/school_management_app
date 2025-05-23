@@ -27,7 +27,7 @@ teacher dashboard {
 
 warden dashboard {
     cooking staff attendance (done)
-    staff salry 
+    staff salry (done)
     cooking staff add (done)
     commodity indent (done)
     commodity recipts (done)
