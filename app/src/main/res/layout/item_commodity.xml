@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="12dp"
+    android:background="@android:color/white"
+    android:layout_marginBottom="8dp"
+    android:elevation="2dp">
+
+    <TextView
+        android:id="@+id/commodityTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Title"
+        android:textStyle="bold"
+        android:textSize="16sp"/>
+
+    <TextView
+        android:id="@+id/commodityMonth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Month"/>
+
+    <TextView
+        android:id="@+id/commodityPhase1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phase 1"/>
+
+    <TextView
+        android:id="@+id/commodityPhase2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Phase 2"/>
+</LinearLayout>
