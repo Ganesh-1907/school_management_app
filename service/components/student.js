@@ -33,6 +33,30 @@ export const addStudent = async (userData) => {
     }
 }
 
+export const getStudents = async (schoolId) => {
+    try {
+        const snapshot = await db.collection("users").where("role", "==", "student").get();
+        
+        const studentPromises = snapshot.docs.map(async (doc) => {
+            const schoolData = await db.collection("users-school").where("userId", "==", doc.id).get();
+            if (schoolData.docs[0]?.data().schoolId === schoolId) {
+                return { id: doc.id, ...doc.data() };
+            }
+            return null;
+        });
+        const studentsResults = await Promise.all(studentPromises);
+        const students = studentsResults.filter(student => student !== null);
+        if (students.length === 0) {
+            return [];
+        } else {
+            return students;
+        }
+    } catch (error) {
+        console.error("Error fetching students:", error);
+        return [];
+    }
+};
+
 export const getStudentsHealth = async (schoolId) => {
     try {
         const snapshot = await db.collection("students-health").where("schoolId", "==", schoolId).get();

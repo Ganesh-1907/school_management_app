@@ -3,7 +3,7 @@ import { addOfficer, addSchools } from "./components/manual-creation-script.js";
 import { addCommodity, getCommodity, getSchoolById, getSchoolByName, getSchools, mapSchoolWithUser } from "./components/school.js";
 import { createUser, fetchUsersNotInSchool, getUserByEmail, getUserById, getUsers, loginUser } from "./components/user.js";
 import { UserRole } from "./utils/enums.js";
-import { addStudent, getStudentsHealth, setStudentHealth } from "./components/student.js";
+import { addStudent, getStudents, getStudentsHealth, setStudentHealth } from "./components/student.js";
 
 const app = express();
 app.use(express.json());
@@ -52,6 +52,12 @@ app.get('/add-student', async (req, res) => {
     const result = await addStudent(req.body);
     res.send(result);
 });
+
+app.get('/get-students/:schoolId', async (req, res) => {
+    const { schoolId } = req.params;
+    const result = await getStudents(schoolId);
+    res.send(result);
+})
 
 app.get('/get-schools', async (req, res) => {
     const result = await getSchools();
