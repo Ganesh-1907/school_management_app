@@ -2,6 +2,7 @@ export interface User {
     name: string;
     email: string;
     role: string;
+    class: string;
     password: string;
     phone: string;
     address: string;
@@ -38,4 +39,19 @@ export interface Commodity {
     title: string;
     phase1: number;
     phase2: number;
+}
+
+export interface Annocement {
+    title: string;
+    description: string;
+    date: string;
+    schoolId: string;
+}
+
+export interface Attendance {
+    date: string;
+    schoolId: string;
+    userId: string;
+    class: string;
+    present: boolean;
 }
