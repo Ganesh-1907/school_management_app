@@ -1,10 +1,9 @@
 import express from "express";
-import { addOfficer, addSchools } from "./components/manual-creation-script.js";
-import { addCommodity, getCommodity, getSchoolById, getSchoolByName, getSchools, mapSchoolWithUser } from "./components/school.js";
-import { createUser, fetchUsersNotInSchool, getUserByEmail, getUserById, getUsers, loginUser } from "./components/user.js";
-import { UserRole } from "./utils/enums.js";
-import { addStudent, getStudents, getStudentsHealth, setStudentHealth } from "./components/student.js";
 import { addAnnouncement, addAttendance, getAnnouncements, getAttendance } from "./components/common.js";
+import { addOfficer, addSchools } from "./components/manual-creation-script.js";
+import { addCommodity, getCommodity, getSchoolById, getSchoolByName, getSchools, mapSchoolWithUser, staffDetails } from "./components/school.js";
+import { addStudent, getStudents, getStudentsHealth, setStudentHealth } from "./components/student.js";
+import { createUser, fetchUsersNotInSchool, getUserByEmail, getUserById, getUsers, loginUser } from "./components/user.js";
 
 const app = express();
 app.use(express.json());
@@ -91,6 +90,12 @@ app.post('/map-school-with-user', async (req, res) => {
     res.send(result);
 });
 
+app.get('/get-staff-details/:schoolId', async (req, res) => {
+    const { schoolId } = req.params;
+    const result = await staffDetails(schoolId);
+    res.send(result);
+});
+
 // student health routes
 app.get('/get-students-health/:schoolId', async (req, res) => {
     const { schoolId } = req.params;
@@ -143,6 +148,13 @@ app.post('/add-attendance', async (req, res) => {
 app.get('/get-attendance/:schoolId/:class', async (req, res) => {
     const { schoolId, class: className } = req.params;
     const result = await getAttendance(schoolId, className);
+    res.send(result);
+});
+
+// marks routes
+app.post('/add-marks', async (req, res) => {
+    const { schoolId, userId, class: className, marks } = req.body;
+    const result = await addMarks({ schoolId, userId, class: className, marks });
     res.send(result);
 });
 

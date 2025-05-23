@@ -55,3 +55,10 @@ export interface Attendance {
     class: string;
     present: boolean;
 }
+
+export interface Marks{
+    schoolId: string;
+    userId: string;
+    class: string;
+    marks: number;
+}

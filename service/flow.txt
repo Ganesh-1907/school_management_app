@@ -1,7 +1,7 @@
 officer dashboard {
     map schools (done)
     add user (done)
-    school commodity 
+    school commodity (done)
     school details (done)
     student health records (done)
 }
@@ -10,27 +10,27 @@ principal dashboard {
     student details (done)
     add student (done)
     time table
-    post announcemets
+    post announcemets (done)
     student health records (done)
-    commodity details
-    announcemets
+    commodity details (done)
+    announcemets (done)
 }
 
 teacher dashboard {
-    mark student attendance
+    mark student attendance (done)
     enter student marks
     time table
-    announcemets
+    announcemets (done)
     student health monitring (done)
     student details (done)
 }
 
 warden dashboard {
-    cooking staff attendance
+    cooking staff attendance (done)
     staff salry
     cooking staff add
     commodity indent
-    commodity recipts
+    commodity recipts (done)
     student health status (done)
 }
 

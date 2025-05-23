@@ -116,3 +116,26 @@ export const getCommodity = async (schoolId) => {
         return null;
     }
 }
+
+export const staffDetails = async (schoolId) => {
+    try {
+        const snapshot = await db.collection("users-school").where("schoolId", "==", schoolId).get();
+        const staffDetails = [];
+        await Promise.all(snapshot.docs.map(async (doc) => {
+            const userData = await db.collection("users").doc(doc.data().userId).get();
+            staffDetails.push({ id: doc.id, ...doc.data(), name: userData.data().name, email: userData.data().email, phone: userData.data().phone, role: doc.data().role });
+        }));
+        const principal = staffDetails.find(staff => staff.role === 'Principal');
+        const warden = staffDetails.find(staff => staff.role === 'Warden');
+        const teachers = staffDetails.filter(staff => staff.role === 'Teacher');
+
+        return [
+            ...(principal ? [principal] : []),
+            ...teachers,
+            ...(warden ? [warden] : [])
+        ];
+    } catch (error) {
+        console.error("Error fetching staff details:", error);
+        return null;
+    }
+}
