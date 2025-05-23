@@ -3,7 +3,8 @@ import { addOfficer, addSchools } from "./components/manual-creation-script.js";
 import { addCommodity, getCommodity, getSchoolById, getSchoolByName, getSchools, mapSchoolWithUser } from "./components/school.js";
 import { createUser, fetchUsersNotInSchool, getUserByEmail, getUserById, getUsers, loginUser } from "./components/user.js";
 import { UserRole } from "./utils/enums.js";
-import { addStudent, getStudentsHealth, setStudentHealth } from "./components/student.js";
+import { addStudent, getStudents, getStudentsHealth, setStudentHealth } from "./components/student.js";
+import { addAnnouncement, addAttendance, getAnnouncements, getAttendance } from "./components/common.js";
 
 const app = express();
 app.use(express.json());
@@ -52,6 +53,12 @@ app.get('/add-student', async (req, res) => {
     const result = await addStudent(req.body);
     res.send(result);
 });
+
+app.get('/get-students/:schoolId', async (req, res) => {
+    const { schoolId } = req.params;
+    const result = await getStudents(schoolId);
+    res.send(result);
+})
 
 app.get('/get-schools', async (req, res) => {
     const result = await getSchools();
@@ -110,6 +117,32 @@ app.get('/get-students-commodity/:schoolId/', async (req, res) => {
 app.post('/set-student-commodity', async (req, res) => {
     const { schoolId, month, phase1, phase2, title } = req.body;
     const result = await addCommodity(schoolId, month, phase1, phase2, title);
+    res.send(result);
+});
+
+// announcement routes
+app.post('/add-announcement', async (req, res) => {
+    const { schoolId, title, description } = req.body;
+    const result = await addAnnouncement({ schoolId, title, description });
+    res.send(result);
+});
+
+app.get('/get-announcements/:schoolId', async (req, res) => {
+    const { schoolId } = req.params;
+    const result = await getAnnouncements(schoolId);
+    res.send(result);
+});
+
+// attendance routes
+app.post('/add-attendance', async (req, res) => {
+    const { schoolId, userId, date, present, class: className } = req.body;
+    const result = await addAttendance({ schoolId, userId, date, present, class: className });
+    res.send(result);
+});
+
+app.get('/get-attendance/:schoolId/:class', async (req, res) => {
+    const { schoolId, class: className } = req.params;
+    const result = await getAttendance(schoolId, className);
     res.send(result);
 });
 

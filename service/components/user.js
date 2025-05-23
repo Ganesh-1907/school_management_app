@@ -22,9 +22,8 @@ export const loginUser = async (email, password) => {
             return null;
         }
         let user = null;
-        snapshot.forEach((doc) => {
-            user = { id: doc.id, ...doc.data() };
-        });
+        const schoolData = await db.collection("users-school").where("userId", "==", snapshot.docs[0].id).get();
+        user = { id: snapshot.docs[0].id, ...snapshot.docs[0].data(), schoolId: schoolData.docs[0]?.id || null };
         if (user.password !== password) {
             console.log("Invalid password.");
             return null;
