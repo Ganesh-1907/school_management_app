@@ -23,7 +23,7 @@ export const loginUser = async (email, password) => {
         }
         let user = null;
         const schoolData = await db.collection("users-school").where("userId", "==", snapshot.docs[0].id).get();
-        user = { id: snapshot.docs[0].id, ...snapshot.docs[0].data(), schoolId: schoolData.docs[0]?.id || null };
+        user = { id: snapshot.docs[0].id, ...snapshot.docs[0].data(), schoolId: schoolData.docs[0]?.data().schoolId || null };
         if (user.password !== password) {
             console.log("Invalid password.");
             return null;
