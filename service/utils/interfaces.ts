@@ -7,6 +7,8 @@ export interface User {
     phone: string;
     address: string;
     dateOfBirth: string;
+    motherName: string;
+    fatherName: string;
     gender: "Male" | "Female" | "Other";
     joiningDate: string;
 }

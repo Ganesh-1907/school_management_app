@@ -9,20 +9,21 @@ export const addStudent = async (userData) => {
         }
         await db.collection("users").doc().set({
             name: userData.name,
-            email: userData.email,
-            role: userData.role,
+            role: 'Student',
             password: userData.phone,
             class: userData.class,
             phone: userData.phone,
             address: userData.address,
             dateOfBirth: userData.dateOfBirth,
             gender: userData.gender,
-            joiningDate: userData.joiningDate,
+            motherName: userData.motherName,
+            fatherName: userData.fatherName,
+            joiningDate: new Date().toISOString(),
         });
         await db.collection('users-school').doc().set({
             schoolId: userData.schoolId,
             userId: userData.userId,
-            role: userData.role,
+            role: 'Student',
             joinedAt: new Date().toISOString()
         });
         console.log(`User ${userData.name} created successfully!`);
@@ -36,7 +37,6 @@ export const addStudent = async (userData) => {
 export const getStudents = async (schoolId) => {
     try {
         const snapshot = await db.collection("users").where("role", "==", "student").get();
-        
         const studentPromises = snapshot.docs.map(async (doc) => {
             const schoolData = await db.collection("users-school").where("userId", "==", doc.id).get();
             if (schoolData.docs[0]?.data().schoolId === schoolId) {
@@ -76,6 +76,10 @@ export const getStudentsHealth = async (schoolId) => {
             const userDoc = await db.collection("users").doc(userId).get();
             if (userDoc.exists) {
                 console.log("userDoc", userDoc.data())
+                if(!userDoc.data().role || userDoc.data().role !== "Student") {
+                    console.warn("User is not a student:", userId);
+                    return;
+                }
                 const userData = userDoc.data();
                 userMap[userId] = userData.name || "Unknown";
             } else {
