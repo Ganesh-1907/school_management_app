@@ -187,3 +187,18 @@ export const getStaffSalary = async (schoolId) => {
         return null;
     }
 }
+
+export const cookingStaffDetails = async (schoolId) => {
+    try {
+        const snapshot = await db.collection("users-school").where("schoolId", "==", schoolId).where("role", "==", "Cooking").get();
+        const cookingStaffDetails = [];
+        await Promise.all(snapshot.docs.map(async (doc) => {
+            const userData = await db.collection("users").doc(doc.data().userId).get();
+            cookingStaffDetails.push({ id: doc.id, ...doc.data(), name: userData.data().name, email: userData.data().email, phone: userData.data().phone });
+        }));
+        return cookingStaffDetails;
+    } catch (error) {
+        console.error("Error fetching cooking staff details:", error);
+        return null;
+    }
+}

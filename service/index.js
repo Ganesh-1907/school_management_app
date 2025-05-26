@@ -1,5 +1,5 @@
 import express from "express";
-import { addAnnouncement, addAttendance, getAnnouncements, getAttendance } from "./components/common.js";
+import { addAnnouncement, addAttendance, addMarks, getAnnouncements, getAttendance } from "./components/common.js";
 import { addOfficer, addSchools } from "./components/manual-creation-script.js";
 import { addCommodity, addStaffSalary, getCommodity, getSchoolById, getSchoolByName, getSchools, getStaffSalary, mapSchoolWithUser, staffDetails } from "./components/school.js";
 import { addStudent, getStudents, getStudentsHealth, setStudentHealth } from "./components/student.js";
@@ -97,9 +97,12 @@ app.get('/get-staff-details/:schoolId', async (req, res) => {
 });
 
 app.post('/add-staff-salary', async (req, res) => {
-    const { schoolId, userId, salary, issueDate } = req.body;
-    const result = await addStaffSalary(schoolId, userId, salary, issueDate);
-    res.send(result);
+    const bodyArray = req.body;
+    await Promise.all(bodyArray.map((item)=>{
+        const { schoolId, userId, salary, issueDate } = item;
+        return addStaffSalary(schoolId, userId, salary, issueDate);
+    }));
+    res.send({ message: "Staff salaries added successfully" });
 });
 
 app.get('/get-staff-salary/:schoolId', async (req, res) => {
@@ -165,9 +168,12 @@ app.get('/get-attendance/:schoolId/:class', async (req, res) => {
 
 // marks routes
 app.post('/add-marks', async (req, res) => {
-    const { schoolId, userId, class: className, marks } = req.body;
-    const result = await addMarks({ schoolId, userId, class: className, marks });
-    res.send(result);
+    const bodyArray = req.body;
+    await Promise.all(bodyArray.map((item) => {
+        const { schoolId, userId, class: className, marks } = item;
+        return addMarks({ schoolId, userId, class: className, marks });
+    }));
+    res.send({ message: "Marks added successfully" });
 });
 
 app.listen(3000, () => {
