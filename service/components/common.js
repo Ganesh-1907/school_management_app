@@ -23,16 +23,22 @@ export const getAnnouncements = async (schoolId) => {
     }
 }
 
-export const addAttendance = async (attendance) => {
+export const addAttendance = async (attendanceArray) => {
     try {
-        const docRef = await db.collection("attendance").add(attendance);
-        console.log("Attendance added with ID:", docRef.id);
-        return { id: docRef.id, ...attendance };
+        const addedRecords = [];
+        for (const attendance of attendanceArray) {
+            attendance.date = new Date().toISOString();
+            const docRef = await db.collection("attendance").add(attendance);
+            console.log("Attendance added with ID:", docRef.id);
+            addedRecords.push({ id: docRef.id, ...attendance });
+        }
+        return addedRecords;
     } catch (error) {
         console.error("Error adding attendance:", error);
         return null;
     }
-}
+};
+
 
 export const getAttendance = async (schoolId, className) => {
     try {
