@@ -97,9 +97,12 @@ app.get('/get-staff-details/:schoolId', async (req, res) => {
 });
 
 app.post('/add-staff-salary', async (req, res) => {
-    const { schoolId, userId, salary, issueDate } = req.body;
-    const result = await addStaffSalary(schoolId, userId, salary, issueDate);
-    res.send(result);
+    const bodyArray = req.body;
+    await Promise.all(bodyArray.map((item)=>{
+        const { schoolId, userId, salary, issueDate } = item;
+        return addStaffSalary(schoolId, userId, salary, issueDate);
+    }));
+    res.send({ message: "Staff salaries added successfully" });
 });
 
 app.get('/get-staff-salary/:schoolId', async (req, res) => {
