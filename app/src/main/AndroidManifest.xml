@@ -35,6 +35,20 @@
             android:exported="false" />
         <activity android:name=".SchoolMapping"
             android:exported="false" />
+        <activity android:name=".CommodityIndentMonthlyWardenActivity"
+            android:exported="false" />
+        <activity android:name=".Post_announcements_dailog_principal"
+            android:exported="false" />
+        <activity android:name=".AnnouncementActivity"
+            android:exported="false" />
+        <activity android:name=".AddNewStudentPagePrincipalActivity"
+            android:exported="false" />
+        <activity android:name=".StudentDetailsActivity"
+            android:exported="false" />
+        <activity android:name=".TimetablesActivity"
+            android:exported="false" />
+        <activity android:name=".AttendanceActivity"
+            android:exported="false" />
 
 
         <activity

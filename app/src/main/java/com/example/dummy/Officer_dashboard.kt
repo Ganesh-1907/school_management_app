@@ -31,6 +31,7 @@ class Officer_dashboard : AppCompatActivity() {
         val addUserCard = findViewById<androidx.cardview.widget.CardView>(R.id.card2_adduser_officer)
         addUserCard.setOnClickListener {
             val intent = Intent(this, Add_User_page_officer::class.java)
+            intent.putExtra("source", "card")
             startActivity(intent)
         }
 

@@ -1,17 +1,16 @@
 package com.example.dummy
 
 import android.app.DatePickerDialog
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dummy.R
-import java.util.*
 import okhttp3.*
-import okhttp3.MediaType.Companion.parse
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import org.json.JSONObject
 import java.io.IOException
+import java.util.*
 
 class Add_User_page_officer : AppCompatActivity() {
 
@@ -29,10 +28,22 @@ class Add_User_page_officer : AppCompatActivity() {
         val address = findViewById<EditText>(R.id.Employee_address_add_officer)
         val submitBtn = findViewById<Button>(R.id.submit_button)
 
+        // Get source from intent to handle conditional logic
+        val source = intent.getStringExtra("source") ?: ""
+
         // Setup Spinner
-        val roles = listOf("Select Role", "Principal", "Teacher", "Warden")
+        val roles = listOf("Select Role", "Principal", "Teacher", "Warden", "Cooking Staff")
         val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, roles)
         role.adapter = adapter
+
+        // If launched from cooking staff dropdown, pre-select and disable spinner
+        if (source == "cooking") {
+            val index = roles.indexOf("Cooking Staff")
+            if (index >= 0) {
+                role.setSelection(index)
+                role.isEnabled = false
+            }
+        }
 
         // Show Date Picker Dialog for DOB
         dob.setOnClickListener {
@@ -44,7 +55,6 @@ class Add_User_page_officer : AppCompatActivity() {
             showDatePicker(joiningDate)
         }
 
-
         submitBtn.setOnClickListener {
             val selectedGenderId = genderGroup.checkedRadioButtonId
             val selectedGender = findViewById<RadioButton>(selectedGenderId)?.text.toString()
@@ -53,7 +63,6 @@ class Add_User_page_officer : AppCompatActivity() {
             jsonBody.put("name", name.text.toString())
             jsonBody.put("email", email.text.toString())
             jsonBody.put("role", role.selectedItem.toString())
-//            jsonBody.put("password", "default123") // Replace with user input if needed
             jsonBody.put("phone", mobile.text.toString())
             jsonBody.put("address", address.text.toString())
             jsonBody.put("dateOfBirth", dob.text.toString())
@@ -63,7 +72,6 @@ class Add_User_page_officer : AppCompatActivity() {
             val JSON = "application/json; charset=utf-8".toMediaTypeOrNull()
             val body = RequestBody.create(JSON, jsonBody.toString())
 
-            // 👇 Access localhost on your computer from the Android Emulator
             val request = Request.Builder()
                 .url("http://10.0.2.2:3000/add-user")
                 .post(body)
@@ -86,7 +94,6 @@ class Add_User_page_officer : AppCompatActivity() {
                 }
             })
         }
-
     }
 
     private fun showDatePicker(editText: EditText) {

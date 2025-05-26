@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">Dummy</string>
+    <string name="select_month">Select Month</string>
+    <string name="select_item">Select Item</string>
     <string-array name="login_roles_array">
         <item>Officer</item>
         <item>Principal</item>

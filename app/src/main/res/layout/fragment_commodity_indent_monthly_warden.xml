@@ -1,217 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Commodity_indent_monthly_warden"
-    android:background="@drawable/background1">
+    android:layout_height="match_parent">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintHeight_percent="0.9"
-        app:layout_constraintWidth_percent="0.9"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"
-        app:cardCornerRadius="18dp"
-        app:cardElevation="15dp">
-        <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <Spinner
+            android:id="@+id/spinnerMonth"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/xx1"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="50dp"
-            android:text="Rice Indent"
-            android:textSize="30sp"
-            android:textStyle="bold"
-            android:textColor="@color/Navy_blue"/>
-            <TextView
-                android:id="@+id/allocated_message1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Phase 1 : "
-                app:layout_constraintTop_toBottomOf="@id/xx1"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="20dp"
-                android:textSize="30dp"
-                android:textColor="@color/Medium_grey"
-                android:textStyle="bold"
-                android:layout_marginStart="10dp"/>
-            <EditText
-                android:id="@+id/Rice_indient_allocated_entry"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                app:layout_constraintWidth_percent="0.4"
-                android:background="@drawable/roundededittext_1"
-                app:layout_constraintTop_toBottomOf="@id/xx1"
-                app:layout_constraintStart_toEndOf="@id/allocated_message1"
-                android:layout_marginTop="20dp" />
+            android:prompt="@string/select_month" />
 
-            <TextView
-                android:id="@+id/used_message1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Phase 2 : "
-                app:layout_constraintTop_toBottomOf="@id/allocated_message1"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="20dp"
-                android:textSize="30dp"
-                android:textColor="@color/Medium_grey"
-                android:textStyle="bold"
-                android:layout_marginStart="10dp"/>
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                app:layout_constraintWidth_percent="0.4"
-                android:background="@drawable/roundededittext_1"
-                app:layout_constraintTop_toBottomOf="@id/Rice_indient_allocated_entry"
-                app:layout_constraintStart_toEndOf="@id/used_message1"
-                android:layout_marginTop="20dp" />
+        <Spinner
+            android:id="@+id/spinnerItem"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:prompt="@string/select_item" />
 
-            <TextView
-                android:id="@+id/xx2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/used_message1"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="15dp"
-                android:text="Egg Indent"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:textColor="@color/Navy_blue"/>
-            <TextView
-                android:id="@+id/allocated_message2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Phase 1 : "
-                app:layout_constraintTop_toBottomOf="@id/xx2"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="20dp"
-                android:textSize="30dp"
-                android:textColor="@color/Medium_grey"
-                android:textStyle="bold"
-                android:layout_marginStart="10dp"/>
-            <EditText
-                android:id="@+id/Egg_indient_allocated_entry"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                app:layout_constraintWidth_percent="0.4"
-                android:background="@drawable/roundededittext_1"
-                app:layout_constraintTop_toBottomOf="@id/xx2"
-                app:layout_constraintStart_toEndOf="@id/allocated_message2"
-                android:layout_marginTop="20dp" />
+        <EditText
+            android:id="@+id/editPhase1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phase 1"
+            android:inputType="text" />
 
-            <TextView
-                android:id="@+id/used_message2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Phase 2 : "
-                app:layout_constraintTop_toBottomOf="@id/allocated_message2"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="20dp"
-                android:textSize="30dp"
-                android:textColor="@color/Medium_grey"
-                android:textStyle="bold"
-                android:layout_marginStart="10dp"/>
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                app:layout_constraintWidth_percent="0.4"
-                android:background="@drawable/roundededittext_1"
-                app:layout_constraintTop_toBottomOf="@id/Egg_indient_allocated_entry"
-                app:layout_constraintStart_toEndOf="@id/used_message2"
-                android:layout_marginTop="20dp" />
+        <EditText
+            android:id="@+id/editPhase2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phase 2"
+            android:inputType="text" />
 
-            <TextView
-                android:id="@+id/xx3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toBottomOf="@id/used_message2"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginStart="30dp"
-                android:layout_marginTop="15dp"
-                android:text="Chikki Indent"
-                android:textSize="30sp"
-                android:textStyle="bold"
-                android:textColor="@color/Navy_blue"/>
-            <TextView
-                android:id="@+id/allocated_message3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Phase 1 : "
-                app:layout_constraintTop_toBottomOf="@id/xx3"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="20dp"
-                android:textSize="30dp"
-                android:textColor="@color/Medium_grey"
-                android:textStyle="bold"
-                android:layout_marginStart="10dp"/>
-            <EditText
-                android:id="@+id/Chikki_indient_allocated_entry"
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                app:layout_constraintWidth_percent="0.4"
-                android:background="@drawable/roundededittext_1"
-                app:layout_constraintTop_toBottomOf="@id/xx3"
-                app:layout_constraintStart_toEndOf="@id/allocated_message3"
-                android:layout_marginTop="20dp" />
-
-            <TextView
-                android:id="@+id/used_message3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" Phase 2 : "
-                app:layout_constraintTop_toBottomOf="@id/allocated_message3"
-                app:layout_constraintStart_toStartOf="parent"
-                android:layout_marginTop="20dp"
-                android:textSize="30dp"
-                android:textColor="@color/Medium_grey"
-                android:textStyle="bold"
-                android:layout_marginStart="10dp"/>
-            <EditText
-                android:layout_width="0dp"
-                android:layout_height="40dp"
-                app:layout_constraintWidth_percent="0.4"
-                android:background="@drawable/roundededittext_1"
-                app:layout_constraintTop_toBottomOf="@id/Chikki_indient_allocated_entry"
-                app:layout_constraintStart_toEndOf="@id/used_message3"
-                android:layout_marginTop="20dp" />
-
-            <Button
-                android:layout_width="150dp"
-                android:layout_height="60dp"
-                android:layout_marginTop="20sp"
-                android:backgroundTint="@color/Deep_Blue"
-                android:text="Submit"
-                android:textColor="@color/white"
-                app:layout_constraintTop_toBottomOf="@id/used_message3"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
-            <Spinner
-                android:id="@+id/Spinner_month_cooking_staff_attendenceentry_warden"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                android:layout_marginTop="4dp"
-                android:layout_marginEnd="30dp"
-                android:background="@drawable/roundededittextnavybluestroke_2"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                 />
-
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.cardview.widget.CardView>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit" />
+    </LinearLayout>
+</ScrollView>

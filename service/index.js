@@ -48,7 +48,7 @@ app.get('/get-user-by-email/:email', async (req, res) => {
 });
 
 // school routes
-app.get('/add-student', async (req, res) => {
+app.post('/add-student', async (req, res) => {
     const result = await addStudent(req.body);
     res.send(result);
 });
@@ -173,3 +173,5 @@ app.post('/add-marks', async (req, res) => {
 app.listen(3000, () => {
     console.log("Server is running on port 3000");
 });
+
+

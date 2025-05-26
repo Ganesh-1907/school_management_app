@@ -1,3 +1,5 @@
+import { db } from "../configs/firebase-config.js";
+
 export const addAnnouncement = async (announcement) => {
     try {
         const docRef = await db.collection("announcements").add(announcement);

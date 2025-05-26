@@ -1,16 +1,15 @@
 import { db } from "../configs/firebase-config.js";
 
 export const addStudent = async (userData) => {
+    console.log(userData, 'userdata');
     try {
-        const existUser = await db.collection("users").where("email", "==", userData.email).get();
-        if (!existUser.empty) {
-            console.log(`User with email ${userData.email} already exists.`);
-            return `User with email ${userData.email} already exists.`;
-        }
-        await db.collection("users").doc().set({
+        const userDocRef = db.collection("users").doc();
+        const userId = userDocRef.id;
+
+        await userDocRef.set({
             name: userData.name,
             role: 'Student',
-            password: userData.phone,
+            password: userData.phone, // Ideally hash this
             class: userData.class,
             phone: userData.phone,
             address: userData.address,
@@ -20,23 +19,25 @@ export const addStudent = async (userData) => {
             fatherName: userData.fatherName,
             joiningDate: new Date().toISOString(),
         });
-        await db.collection('users-school').doc().set({
+        await db.collection('users-school').doc(userId).set({
             schoolId: userData.schoolId,
-            userId: userData.userId,
+            userId: userId,
             role: 'Student',
             joinedAt: new Date().toISOString()
         });
+
         console.log(`User ${userData.name} created successfully!`);
         return `User ${userData.name} created successfully!`;
     } catch (error) {
         console.error("Error creating user:", error);
         return `Error creating user: ${error.message}`;
     }
-}
+};
+
 
 export const getStudents = async (schoolId) => {
     try {
-        const snapshot = await db.collection("users").where("role", "==", "student").get();
+        const snapshot = await db.collection("users").where("role", "==", "Student").get();
         const studentPromises = snapshot.docs.map(async (doc) => {
             const schoolData = await db.collection("users-school").where("userId", "==", doc.id).get();
             if (schoolData.docs[0]?.data().schoolId === schoolId) {

@@ -77,8 +77,11 @@ class MainActivity : AppCompatActivity() {
                             val user = jsonResponse.getJSONObject("user")
                             val role = user.getString("role")
                             val name = user.getString("name")
+                            val schoolId = user.getString("schoolId")
 
-                            Toast.makeText(this@MainActivity, "$message\nWelcome $name", Toast.LENGTH_LONG).show()
+                            Log.d("Main Activity", "Received schoolId: $schoolId")
+
+                            Toast.makeText( this@MainActivity, "$message\nWelcome $name", Toast.LENGTH_LONG).show()
                             Log.d("LoginSuccess", "User: $user")
 
                             // Navigate based on role
@@ -93,6 +96,7 @@ class MainActivity : AppCompatActivity() {
                                     return@runOnUiThread
                                 }
                             }
+                            intent.putExtra("schoolId", schoolId)
                             startActivity(intent)
 
                         } catch (e: Exception) {

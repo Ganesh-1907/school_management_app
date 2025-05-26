@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Add_new_student_page_principal"
+    tools:context=".AddNewStudentPagePrincipalActivity"
     android:background="@drawable/background1">
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -84,6 +84,8 @@
                     android:layout_height="wrap_content"
                     android:hint="Gender:"
                     android:textSize="20dp"
+                    android:minHeight="48dp"
+                    android:minWidth="48dp"
                     android:textColorHint="@color/Medium_grey"/>
 
                 <RadioButton
@@ -91,6 +93,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Male"
+                    android:minHeight="48dp"
+                    android:minWidth="48dp"
                     android:textColor="@color/black"/>
 
                 <RadioButton
@@ -98,6 +102,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Female"
+                    android:minHeight="48dp"
+                    android:minWidth="48dp"
                     android:textColor="@color/black"/>
 
                 <RadioButton
@@ -107,33 +113,23 @@
                     android:text="Others"
                     android:textColor="@color/black"/>
             </RadioGroup>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Class"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="16dp"/>
+
             <Spinner
-                android:id="@+id/Student_class_enter_principal"
+                android:id="@+id/class_spinner"
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@drawable/roundededittext_1" />
-            <EditText
-                android:id="@+id/Student_ID"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/roundededittext_1"
-                android:hint="Student Id "
-                android:inputType=""
-                android:padding="10dp"
-                android:textColorHint="@color/Medium_grey"
-                android:textColor="@color/black"/>
-            <EditText
-                android:id="@+id/School_ID_Enter_officer"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/roundededittext_1"
-                android:hint="School Id "
-                android:inputType=""
-                android:padding="10dp"
-                android:textColorHint="@color/Medium_grey"
-                android:textColor="@color/black"/>
+                android:minHeight="48dp"
+                android:layout_marginBottom="10dp"/>
+
             <EditText
                 android:id="@+id/student_father_name_enter_principal"
                 android:layout_width="match_parent"
@@ -154,12 +150,6 @@
                 android:padding="10dp"
                 android:textColorHint="@color/Medium_grey"
                 android:textColor="@color/black"/>
-            <Spinner
-                android:id="@+id/Student_caste_enter_principal"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:background="@drawable/roundededittext_1" />
-
 
             <EditText
                 android:id="@+id/student_parent_phoneNumber_enter_principal"
@@ -179,7 +169,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/roundededittext_1"
                 android:hint="Address"
-                android:inputType="phone"
+                android:inputType="textCapCharacters"
                 android:padding="10dp"
                 android:textColorHint="@color/Medium_grey"
                 android:textColor="@color/black"/>
