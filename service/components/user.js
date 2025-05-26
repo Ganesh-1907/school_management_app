@@ -75,6 +75,25 @@ export const createUser = async (userData) => {
             console.log(`User with email ${userData.email} already exists.`);
             return `User with email ${userData.email} already exists.`;
         }
+        if (userData.schoolId) {
+            const userInsertData = await db.collection("users").doc().set({
+                name: userData.name,
+                email: userData.email,
+                role: userData.role,
+                password: userData.phone,
+                phone: userData.phone,
+                address: userData.address,
+                dateOfBirth: userData.dateOfBirth,
+                gender: userData.gender,
+                joiningDate: userData.joiningDate,
+            });
+            await db.collection("users-school").doc().set({
+                userId: userInsertData.id,
+                schoolId: userData.schoolId,
+            });
+            console.log(`User ${userData.name} created and linked to school ${userData.schoolId} successfully!`);
+            return `User ${userData.name} created and linked to school ${userData.schoolId} successfully!`;
+        }
         await db.collection("users").doc().set({
             name: userData.name,
             email: userData.email,
