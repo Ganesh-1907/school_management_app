@@ -84,7 +84,7 @@ export const getStudentsHealth = async (schoolId) => {
                 const userData = userDoc.data();
                 userMap[userId] = userData.name || "Unknown";
             } else {
-                userMap[userId] = "Unknown";
+                return console.warn(`User with ID ${userId} not found.`);
             }
         }));
 
