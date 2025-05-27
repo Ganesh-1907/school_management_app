@@ -1,7 +1,7 @@
 import express from "express";
 import { addAnnouncement, addAttendance, addMarks, getAnnouncements, getAttendance } from "./components/common.js";
 import { addOfficer, addSchools } from "./components/manual-creation-script.js";
-import { addCommodity, addStaffSalary, getCommodity, getSchoolById, getSchoolByName, getSchools, getStaffSalary, mapSchoolWithUser, staffDetails } from "./components/school.js";
+import { addCommodity, addStaffSalary, cookingStaffDetails, getCommodity, getSchoolById, getSchoolByName, getSchools, getStaffSalary, mapSchoolWithUser, staffDetails } from "./components/school.js";
 import { addStudent, getStudents, getStudentsHealth, setStudentHealth } from "./components/student.js";
 import { createUser, fetchUsersNotInSchool, getUserByEmail, getUserById, getUsers, loginUser } from "./components/user.js";
 
@@ -108,6 +108,12 @@ app.post('/add-staff-salary', async (req, res) => {
 app.get('/get-staff-salary/:schoolId', async (req, res) => {
     const { schoolId } = req.params;
     const result = await getStaffSalary(schoolId);
+    res.send(result);
+});
+
+app.get('/cooking-staff-details/:schoolId', async (req, res) => {
+    const { schoolId } = req.params;
+    const result = await cookingStaffDetails(schoolId, "Cooking");
     res.send(result);
 });
 
