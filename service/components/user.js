@@ -75,8 +75,6 @@ export const createUser = async (userData) => {
             console.log(`User with email ${userData.email} already exists.`);
             return `User with email ${userData.email} already exists.`;
         }
-
-        // Create a new document reference to get the ID
         const newUserRef = db.collection("users").doc();
 
         await newUserRef.set({
@@ -91,11 +89,11 @@ export const createUser = async (userData) => {
             joiningDate: userData.joiningDate,
         });
 
-        // Add school link only if schoolId exists
         if (userData.schoolId) {
             await db.collection("users-school").doc().set({
                 userId: newUserRef.id,
                 schoolId: userData.schoolId,
+                role: userData.role,
             });
 
             console.log(`User ${userData.name} created and linked to school ${userData.schoolId} successfully!`);
