@@ -41,7 +41,21 @@ export const addAttendance = async (attendanceArray) => {
     }
 };
 
-
+export const addcookAttendance = async (attendanceArray) => {
+    try {
+        const addedRecords = [];
+        for (const attendance of attendanceArray) {
+            attendance.date = new Date().toISOString(); // Add current date
+            const docRef = await db.collection("cooking attendance").add(attendance); // Save to Firestore
+            console.log("Attendance added with ID:", docRef.id);
+            addedRecords.push({ id: docRef.id, ...attendance });
+        }
+        return addedRecords;
+    } catch (error) {
+        console.error("Error adding attendance:", error);
+        return null;
+    }
+};
 
 export const getAttendance = async (schoolId, className) => {
     try {
@@ -60,6 +74,17 @@ export const getAttendance = async (schoolId, className) => {
 export const addMarks = async (marks) => {
     try {
         const docRef = await db.collection("marks").add(marks);
+        console.log("Marks added with ID:", docRef.id);
+        return { id: docRef.id, ...marks };
+    } catch (error) {
+        console.error("Error adding marks:", error);
+        return null;
+    }
+}
+
+export const addSalaries = async (marks) => {
+    try {
+        const docRef = await db.collection("cooking staffsalaries").add(marks);
         console.log("Marks added with ID:", docRef.id);
         return { id: docRef.id, ...marks };
     } catch (error) {

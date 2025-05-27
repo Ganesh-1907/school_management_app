@@ -51,6 +51,8 @@
             android:exported="false" />
         <activity android:name=".MarksEntryActivity"
             android:exported="false" />
+        <activity android:name=".SalaryActivity"
+            android:exported="false" />
 
 
         <activity

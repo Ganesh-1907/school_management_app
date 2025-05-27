@@ -190,7 +190,7 @@ export const getStaffSalary = async (schoolId) => {
 
 export const cookingStaffDetails = async (schoolId) => {
     try {
-        const snapshot = await db.collection("users-school").where("schoolId", "==", schoolId).where("role", "==", "Cooking").get();
+        const snapshot = await db.collection("users-school").where("schoolId", "==", schoolId).where("role", "==", "Cooking Staff").get();
         const cookingStaffDetails = [];
         await Promise.all(snapshot.docs.map(async (doc) => {
             const userData = await db.collection("users").doc(doc.data().userId).get();

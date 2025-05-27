@@ -1,5 +1,5 @@
 import express from "express";
-import { addAnnouncement, addAttendance, addMarks, getAnnouncements, getAttendance } from "./components/common.js";
+import { addAnnouncement, addAttendance,addcookAttendance, addMarks,addSalaries, getAnnouncements, getAttendance } from "./components/common.js";
 import { addOfficer, addSchools } from "./components/manual-creation-script.js";
 import { addCommodity, addStaffSalary, cookingStaffDetails, getCommodity, getSchoolById, getSchoolByName, getSchools, getStaffSalary, mapSchoolWithUser, staffDetails } from "./components/school.js";
 import { addStudent, getStudents, getStudentsHealth, setStudentHealth } from "./components/student.js";
@@ -96,14 +96,14 @@ app.get('/get-staff-details/:schoolId', async (req, res) => {
     res.send(result);
 });
 
-app.post('/add-staff-salary', async (req, res) => {
-    const bodyArray = req.body;
-    await Promise.all(bodyArray.map((item)=>{
-        const { schoolId, userId, salary, issueDate } = item;
-        return addStaffSalary(schoolId, userId, salary, issueDate);
-    }));
-    res.send({ message: "Staff salaries added successfully" });
-});
+// app.post('/add-staff-salary', async (req, res) => {
+//     const bodyArray = req.body;
+//     await Promise.all(bodyArray.map((item)=>{
+//         const { schoolId, userId, salary, issueDate } = item;
+//         return addStaffSalary(schoolId, userId, salary, issueDate);
+//     }));
+//     res.send({ message: "Staff salaries added successfully" });
+// });
 
 app.get('/get-staff-salary/:schoolId', async (req, res) => {
     const { schoolId } = req.params;
@@ -113,8 +113,7 @@ app.get('/get-staff-salary/:schoolId', async (req, res) => {
 
 app.get('/cooking-staff-details/:schoolId', async (req, res) => {
     const { schoolId } = req.params;
-    console.log(schoolId,'ganesh')
-    const result = await cookingStaffDetails(schoolId, "Cooking");
+    const result = await cookingStaffDetails(schoolId, "Cooking Staff");
     res.send(result);
 });
 
@@ -167,6 +166,12 @@ app.post('/add-attendance', async (req, res) => {
     res.send(result);
 });
 
+app.post('/add-cooking-attendance', async (req, res) => {
+    const attendanceArray = req.body; // this will be an array
+    const result = await addcookAttendance(attendanceArray);
+    res.send(result);
+});
+
 
 app.get('/get-attendance/:schoolId/:class', async (req, res) => {
     const { schoolId, class: className } = req.params;
@@ -180,6 +185,16 @@ app.post('/add-marks', async (req, res) => {
     await Promise.all(bodyArray.map((item) => {
         const { schoolId, userId, class: className, marks } = item;
         return addMarks({ schoolId, userId, class: className, marks });
+    }));
+    res.send({ message: "Marks added successfully" });
+});
+
+app.post('/add-staff-salary', async (req, res) => {
+    const bodyArray = req.body;
+    console.log(bodyArray,'ganesh')
+    await Promise.all(bodyArray.map((item) => {
+        const { schoolId, userId, class: className, marks } = item;
+        return addSalaries({ schoolId, userId, class: className, marks });
     }));
     res.send({ message: "Marks added successfully" });
 });

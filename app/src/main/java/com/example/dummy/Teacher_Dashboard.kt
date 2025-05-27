@@ -32,6 +32,7 @@ class Teacher_Dashboard : AppCompatActivity() {
         addMarksCard.setOnClickListener {
             val intent = Intent(this, MarksEntryActivity::class.java)
             intent.putExtra("schoolId", schoolId)
+            intent.putExtra("entryType", "marks")
             startActivity(intent)
         }
 
@@ -39,6 +40,7 @@ class Teacher_Dashboard : AppCompatActivity() {
         addAttendenceCard.setOnClickListener {
             val intent = Intent(this, AttendanceActivity::class.java)
             intent.putExtra("schoolId", schoolId)
+            intent.putExtra("type", "student")
             startActivity(intent)
         }
 

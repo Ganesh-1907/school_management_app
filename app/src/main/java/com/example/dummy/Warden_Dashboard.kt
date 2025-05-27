@@ -30,11 +30,27 @@ class Warden_Dashboard : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val cookingSalaryCard = findViewById<androidx.cardview.widget.CardView>(R.id.card2_Cooking_staff_salary_warden)
+        cookingSalaryCard.setOnClickListener {
+            val intent = Intent(this, SalaryActivity::class.java)
+            intent.putExtra("schoolId", schoolId)
+            intent.putExtra("entryType", "salary")
+            startActivity(intent)
+        }
+
         val cookingStaffCard = findViewById<androidx.cardview.widget.CardView>(R.id.card8_Cooking_Staff_user_add_warden)
         cookingStaffCard.setOnClickListener {
             val intent = Intent(this, Add_User_page_officer::class.java)
             intent.putExtra("source", "cooking")
             intent.putExtra("schoolId", schoolId)
+            startActivity(intent)
+        }
+
+        val cookingAttendenceCard = findViewById<androidx.cardview.widget.CardView>(R.id.card1_Cooking_staff_attendence)
+        cookingAttendenceCard.setOnClickListener {
+            val intent = Intent(this, AttendanceActivity::class.java)
+            intent.putExtra("schoolId", schoolId)
+            intent.putExtra("type", "cooking")
             startActivity(intent)
         }
 
