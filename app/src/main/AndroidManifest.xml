@@ -49,6 +49,8 @@
             android:exported="false" />
         <activity android:name=".AttendanceActivity"
             android:exported="false" />
+        <activity android:name=".MarksEntryActivity"
+            android:exported="false" />
 
 
         <activity

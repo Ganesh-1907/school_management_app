@@ -113,6 +113,7 @@ app.get('/get-staff-salary/:schoolId', async (req, res) => {
 
 app.get('/cooking-staff-details/:schoolId', async (req, res) => {
     const { schoolId } = req.params;
+    console.log(schoolId,'ganesh')
     const result = await cookingStaffDetails(schoolId, "Cooking");
     res.send(result);
 });
@@ -161,10 +162,11 @@ app.get('/get-announcements/:schoolId', async (req, res) => {
 
 // attendance routes
 app.post('/add-attendance', async (req, res) => {
-    const { schoolId, userId, date, present, class: className } = req.body;
-    const result = await addAttendance({ schoolId, userId, date, present, class: className });
+    const attendanceArray = req.body; // this will be an array
+    const result = await addAttendance(attendanceArray);
     res.send(result);
 });
+
 
 app.get('/get-attendance/:schoolId/:class', async (req, res) => {
     const { schoolId, class: className } = req.params;

@@ -1,11 +1,9 @@
 package com.example.dummy
 
 import android.app.DatePickerDialog
-import android.content.Intent
 import android.os.Bundle
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
-import com.example.dummy.R
 import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import org.json.JSONObject
@@ -28,85 +26,61 @@ class Add_User_page_officer : AppCompatActivity() {
         val address = findViewById<EditText>(R.id.Employee_address_add_officer)
         val submitBtn = findViewById<Button>(R.id.submit_button)
 
-        // Get source from intent to handle conditional logic
         val source = intent.getStringExtra("source") ?: ""
+        val schoolId = intent.getStringExtra("schoolId") ?: ""
 
-        // Setup Spinner
         val roles = listOf("Select Role", "Principal", "Teacher", "Warden", "Cooking Staff")
-        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, roles)
-        role.adapter = adapter
+        role.adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, roles)
 
-        // If launched from cooking staff dropdown, pre-select and disable spinner
-        if (source == "cooking") {
-            val index = roles.indexOf("Cooking Staff")
-            if (index >= 0) {
-                role.setSelection(index)
-                role.isEnabled = false
-            }
-        }
+        if (source == "cooking") role.apply { setSelection(roles.indexOf("Cooking Staff")); isEnabled = false }
 
-        // Show Date Picker Dialog for DOB
-        dob.setOnClickListener {
-            showDatePicker(dob)
-        }
-
-        // Show Date Picker Dialog for Joining Date
-        joiningDate.setOnClickListener {
-            showDatePicker(joiningDate)
-        }
+        dob.setOnClickListener { showDatePicker(dob) }
+        joiningDate.setOnClickListener { showDatePicker(joiningDate) }
 
         submitBtn.setOnClickListener {
-            val selectedGenderId = genderGroup.checkedRadioButtonId
-            val selectedGender = findViewById<RadioButton>(selectedGenderId)?.text.toString()
+            val selectedGender = findViewById<RadioButton>(genderGroup.checkedRadioButtonId)?.text.toString()
+            val selectedRole = role.selectedItem.toString()
 
-            val jsonBody = JSONObject()
-            jsonBody.put("name", name.text.toString())
-            jsonBody.put("email", email.text.toString())
-            jsonBody.put("role", role.selectedItem.toString())
-            jsonBody.put("phone", mobile.text.toString())
-            jsonBody.put("address", address.text.toString())
-            jsonBody.put("dateOfBirth", dob.text.toString())
-            jsonBody.put("gender", selectedGender)
-            jsonBody.put("joiningDate", joiningDate.text.toString())
+            val jsonBody = JSONObject().apply {
+                put("name", name.text.toString())
+                put("email", email.text.toString())
+                put("role", selectedRole)
+                put("phone", mobile.text.toString())
+                put("address", address.text.toString())
+                put("dateOfBirth", dob.text.toString())
+                put("gender", selectedGender)
+                put("joiningDate", joiningDate.text.toString())
+                if (selectedRole == "Cooking Staff") put("schoolId", schoolId)
+            }
 
-            val JSON = "application/json; charset=utf-8".toMediaTypeOrNull()
-            val body = RequestBody.create(JSON, jsonBody.toString())
+            val body = RequestBody.create("application/json; charset=utf-8".toMediaTypeOrNull(), jsonBody.toString())
 
-            val request = Request.Builder()
-                .url("http://10.0.2.2:3000/add-user")
-                .post(body)
-                .build()
-
-            val client = OkHttpClient()
-
-            client.newCall(request).enqueue(object : Callback {
-                override fun onFailure(call: Call, e: IOException) {
-                    runOnUiThread {
-                        Toast.makeText(this@Add_User_page_officer, "Failed: ${e.message}", Toast.LENGTH_LONG).show()
-                    }
+            OkHttpClient().newCall(
+                Request.Builder()
+                    .url("http://10.0.2.2:3000/add-user")
+                    .post(body)
+                    .build()
+            ).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) = runOnUiThread {
+                    Toast.makeText(this@Add_User_page_officer, "Failed: ${e.message}", Toast.LENGTH_LONG).show()
                 }
 
-                override fun onResponse(call: Call, response: Response) {
-                    val res = response.body?.string()
-                    runOnUiThread {
-                        Toast.makeText(this@Add_User_page_officer, "Response: $res", Toast.LENGTH_LONG).show()
-                    }
+                override fun onResponse(call: Call, response: Response) = runOnUiThread {
+                    Toast.makeText(this@Add_User_page_officer, "Response: ${response.body?.string()}", Toast.LENGTH_LONG).show()
                 }
             })
         }
     }
 
     private fun showDatePicker(editText: EditText) {
-        val calendar = Calendar.getInstance()
-        val year = calendar.get(Calendar.YEAR)
-        val month = calendar.get(Calendar.MONTH)
-        val day = calendar.get(Calendar.DAY_OF_MONTH)
-
-        val dpd = DatePickerDialog(this, { _, y, m, d ->
-            val selectedDate = "${"%02d".format(d)}/${"%02d".format(m + 1)}/$y"
-            editText.setText(selectedDate)
-        }, year, month, day)
-
-        dpd.show()
+        Calendar.getInstance().run {
+            DatePickerDialog(
+                this@Add_User_page_officer,
+                { _, y, m, d -> editText.setText("%02d/%02d/%d".format(d, m + 1, y)) },
+                get(Calendar.YEAR),
+                get(Calendar.MONTH),
+                get(Calendar.DAY_OF_MONTH)
+            ).show()
+        }
     }
 }

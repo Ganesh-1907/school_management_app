@@ -28,9 +28,23 @@ class Teacher_Dashboard : AppCompatActivity() {
             startActivity(intent)
         }
 
+        val addMarksCard = findViewById<androidx.cardview.widget.CardView>(R.id.card2_Enter_student_marks_teacher)
+        addMarksCard.setOnClickListener {
+            val intent = Intent(this, MarksEntryActivity::class.java)
+            intent.putExtra("schoolId", schoolId)
+            startActivity(intent)
+        }
+
         val addAttendenceCard = findViewById<androidx.cardview.widget.CardView>(R.id.card1_Student_attendence_teacher)
         addAttendenceCard.setOnClickListener {
             val intent = Intent(this, AttendanceActivity::class.java)
+            intent.putExtra("schoolId", schoolId)
+            startActivity(intent)
+        }
+
+        val timeTableCard = findViewById<androidx.cardview.widget.CardView>(R.id.card3_Timetable_Teacher)
+        timeTableCard.setOnClickListener {
+            val intent = Intent(this, TimetablesActivity::class.java)
             intent.putExtra("schoolId", schoolId)
             startActivity(intent)
         }

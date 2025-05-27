@@ -34,6 +34,7 @@ class Warden_Dashboard : AppCompatActivity() {
         cookingStaffCard.setOnClickListener {
             val intent = Intent(this, Add_User_page_officer::class.java)
             intent.putExtra("source", "cooking")
+            intent.putExtra("schoolId", schoolId)
             startActivity(intent)
         }
 

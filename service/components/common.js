@@ -29,8 +29,8 @@ export const addAttendance = async (attendanceArray) => {
     try {
         const addedRecords = [];
         for (const attendance of attendanceArray) {
-            attendance.date = new Date().toISOString();
-            const docRef = await db.collection("attendance").add(attendance);
+            attendance.date = new Date().toISOString(); // Add current date
+            const docRef = await db.collection("attendance").add(attendance); // Save to Firestore
             console.log("Attendance added with ID:", docRef.id);
             addedRecords.push({ id: docRef.id, ...attendance });
         }
@@ -40,6 +40,7 @@ export const addAttendance = async (attendanceArray) => {
         return null;
     }
 };
+
 
 
 export const getAttendance = async (schoolId, className) => {
