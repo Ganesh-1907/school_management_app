@@ -1,7 +1,7 @@
 import express from "express";
-import { addAnnouncement, addAttendance,addcookAttendance, addMarks,addSalaries, getAnnouncements, getAttendance } from "./components/common.js";
+import { addAnnouncement, addAttendance, addcookAttendance, addMarks, addSalaries, getAnnouncements, getAttendance } from "./components/common.js";
 import { addOfficer, addSchools } from "./components/manual-creation-script.js";
-import { addCommodity, addStaffSalary, cookingStaffDetails, getCommodity, getSchoolById, getSchoolByName, getSchools, getStaffSalary, mapSchoolWithUser, staffDetails } from "./components/school.js";
+import { addCommodity, cookingStaffDetails, getCommodity, getSchoolById, getSchoolByName, getSchools, getStaffSalary, mapSchoolWithUser, staffDetails } from "./components/school.js";
 import { addStudent, getStudents, getStudentsHealth, setStudentHealth } from "./components/student.js";
 import { createUser, fetchUsersNotInSchool, getUserByEmail, getUserById, getUsers, loginUser } from "./components/user.js";
 import cors from 'cors'
@@ -13,6 +13,10 @@ app.use(express.json());
 addOfficer();
 
 addSchools();
+
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
 
 // user routes
 app.get('/get-users/:role', async (req, res) => {
