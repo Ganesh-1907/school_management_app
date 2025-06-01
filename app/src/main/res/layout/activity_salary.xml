@@ -5,8 +5,17 @@
     android:orientation="vertical"
     android:padding="16dp"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white"> <!-- Optional: Set background -->
 
+    <!-- 🔵 Include the toolbar at the top -->
+    <include
+        layout="@layout/cooking_staff_salary_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
+
+    <!-- 🔽 Scrollable content below the toolbar -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -19,10 +28,10 @@
             android:layout_height="wrap_content"/>
     </ScrollView>
 
+    <!-- ✅ Submit Button at the bottom -->
     <Button
         android:id="@+id/btnSubmit"
         android:text="Submit Salaries"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
 </LinearLayout>

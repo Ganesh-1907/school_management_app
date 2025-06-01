@@ -39,7 +39,7 @@ class MarksEntryActivity : AppCompatActivity() {
     private fun fetchStudents() {
         val client = OkHttpClient()
         val request = Request.Builder()
-            .url("http://10.0.2.2:3000/get-students/$schoolId")
+            .url("https://school-management-app-five-drab.vercel.app/get-students/$schoolId")
             .build()
 
         client.newCall(request).enqueue(object : Callback {
@@ -88,7 +88,7 @@ class MarksEntryActivity : AppCompatActivity() {
 
         val requestBody = RequestBody.create(mediaType, resultArray.toString())
         val request = Request.Builder()
-            .url("http://10.0.2.2:3000/add-marks")
+            .url("https://school-management-app-five-drab.vercel.app/add-marks")
             .post(requestBody)
             .build()
 

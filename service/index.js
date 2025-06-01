@@ -4,8 +4,10 @@ import { addOfficer, addSchools } from "./components/manual-creation-script.js";
 import { addCommodity, addStaffSalary, cookingStaffDetails, getCommodity, getSchoolById, getSchoolByName, getSchools, getStaffSalary, mapSchoolWithUser, staffDetails } from "./components/school.js";
 import { addStudent, getStudents, getStudentsHealth, setStudentHealth } from "./components/student.js";
 import { createUser, fetchUsersNotInSchool, getUserByEmail, getUserById, getUsers, loginUser } from "./components/user.js";
+import cors from 'cors'
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 addOfficer();
@@ -199,7 +201,7 @@ app.post('/add-staff-salary', async (req, res) => {
     res.send({ message: "Marks added successfully" });
 });
 
-app.listen(3000, () => {
+app.listen(3000,'0.0.0.0', () => {
     console.log("Server is running on port 3000");
 });
 

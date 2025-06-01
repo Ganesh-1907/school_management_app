@@ -28,7 +28,7 @@ class AnnouncementActivity : AppCompatActivity() {
     }
 
     private fun fetchAnnouncements(schoolId: String) {
-        val url = "http://10.0.2.2:3000/get-announcements/$schoolId"  // Replace with actual server URL
+        val url = "https://school-management-app-five-drab.vercel.app/get-announcements/$schoolId"  // Replace with actual server URL
 
         val request = Request.Builder().url(url).build()
         val client = OkHttpClient()

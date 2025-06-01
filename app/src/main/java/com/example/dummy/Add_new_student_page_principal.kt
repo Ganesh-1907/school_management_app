@@ -87,7 +87,7 @@ class AddNewStudentPagePrincipalActivity : AppCompatActivity() {
         val body = RequestBody.create(mediaType, json.toString())
 
         val request = Request.Builder()
-            .url("http://10.0.2.2:3000/add-student")
+            .url("https://school-management-app-five-drab.vercel.app/add-student")
             .post(body)
             .build()
 

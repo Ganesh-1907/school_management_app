@@ -5,8 +5,18 @@
     android:layout_height="match_parent"
     android:padding="8dp">
 
+    <!-- Include the toolbar -->
+    <include layout="@layout/school_details_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"/>
+
+    <!-- RecyclerView fills the rest of the space -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/studentRecyclerView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
 </LinearLayout>

@@ -47,7 +47,7 @@ class SchoolListActivity : AppCompatActivity() {
     private fun fetchSchoolsFromApi() {
         val client = OkHttpClient()
         val request = Request.Builder()
-            .url("http://10.0.2.2:3000/get-schools")
+            .url("https://school-management-app-five-drab.vercel.app/get-schools")
             .get()
             .build()
 

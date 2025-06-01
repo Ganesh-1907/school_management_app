@@ -36,7 +36,7 @@ class SalaryActivity : AppCompatActivity() {
     }
 
     private fun fetchStaffDetails() {
-        val url = "http://10.0.2.2:3000/cooking-staff-details/$schoolId"
+        val url = "https://school-management-app-five-drab.vercel.app/cooking-staff-details/$schoolId"
         val request = Request.Builder().url(url).build()
 
         client.newCall(request).enqueue(object : Callback {
@@ -122,7 +122,7 @@ class SalaryActivity : AppCompatActivity() {
             return
         }
 
-        val url = "http://10.0.2.2:3000/add-staff-salary"
+        val url = "https://school-management-app-five-drab.vercel.app/add-staff-salary"
         val body = RequestBody.create(
             "application/json; charset=utf-8".toMediaTypeOrNull(),
             jsonArray.toString()

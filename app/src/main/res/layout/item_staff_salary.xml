@@ -1,25 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<com.google.android.material.card.MaterialCardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:padding="8dp"
-    android:gravity="center_vertical">
+    android:layout_margin="12dp"
+    card_view:cardCornerRadius="16dp"
+    card_view:cardElevation="8dp"
+    android:padding="12dp"
+    card_view:cardBackgroundColor="@android:color/white">
 
-    <TextView
-        android:id="@+id/tvName"
-        android:layout_width="0dp"
-        android:layout_weight="1"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="18sp"
-        android:textColor="#000"/>
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="4dp">
 
-    <EditText
-        android:id="@+id/etSalary"
-        android:layout_width="100dp"
-        android:layout_height="wrap_content"
-        android:inputType="number"
-        android:hint="Salary"/>
+        <TextView
+            android:id="@+id/tvName"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="#212121"
+            android:textStyle="bold"/>
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/etSalary"
+            android:layout_width="110dp"
+            android:layout_height="40dp"
+            android:background="@drawable/salary_edittext_background"
+            android:inputType="number"
+            android:hint="Salary"
+            android:padding="10dp"
+            android:textColor="#000"
+            android:textSize="16sp"
+            android:gravity="center_vertical|center_horizontal"/>
+    </LinearLayout>
+
+</com.google.android.material.card.MaterialCardView>

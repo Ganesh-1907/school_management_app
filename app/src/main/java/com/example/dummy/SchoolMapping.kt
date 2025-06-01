@@ -75,7 +75,7 @@ class SchoolMapping : AppCompatActivity() {
     }
 
     private fun fetchUsersForRole(role: String) {
-        val url = "http://10.0.2.2:3000/get-users/$role"
+        val url = "https://school-management-app-five-drab.vercel.app/get-users/$role"
         val request = Request.Builder().url(url).get().build()
 
         client.newCall(request).enqueue(object : Callback {
@@ -119,7 +119,7 @@ class SchoolMapping : AppCompatActivity() {
     }
 
     private fun mapSchoolWithUser(schoolId: String, userId: String, role: String) {
-        val url = "http://10.0.2.2:3000/map-school-with-user"
+        val url = "https://school-management-app-five-drab.vercel.app/map-school-with-user"
 
         val jsonBody = JSONObject()
         jsonBody.put("schoolId", schoolId)

@@ -43,9 +43,9 @@ class AttendanceActivity : AppCompatActivity() {
     private fun fetchPeople() {
         val client = OkHttpClient()
         val url = if (type == "student")
-            "http://10.0.2.2:3000/get-students/$schoolId"
+            "https://school-management-app-five-drab.vercel.app/get-students/$schoolId"
         else
-            "http://10.0.2.2:3000/cooking-staff-details/$schoolId"
+            "https://school-management-app-five-drab.vercel.app/cooking-staff-details/$schoolId"
 
         val request = Request.Builder().url(url).build()
 
@@ -94,9 +94,9 @@ class AttendanceActivity : AppCompatActivity() {
         }
 
         val url = if (type == "student")
-            "http://10.0.2.2:3000/add-attendance"
+            "https://school-management-app-five-drab.vercel.app/add-attendance"
         else
-            "http://10.0.2.2:3000/add-cooking-attendance"
+            "https://school-management-app-five-drab.vercel.app/add-cooking-attendance"
 
         val requestBody = RequestBody.create(mediaType, resultArray.toString())
         val request = Request.Builder().url(url).post(requestBody).build()

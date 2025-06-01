@@ -45,7 +45,7 @@ class HealthReportsActivity : AppCompatActivity() {
     private fun fetchHealthReports(schoolId: String) {
         val client = OkHttpClient()
         val request = Request.Builder()
-            .url("http://10.0.2.2:3000/get-students-health/$schoolId")
+            .url("https://school-management-app-five-drab.vercel.app/get-students-health/$schoolId")
             .build()
 
         client.newCall(request).enqueue(object : Callback {

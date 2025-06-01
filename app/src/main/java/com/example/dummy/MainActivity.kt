@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
         val requestBody = RequestBody.create(mediaType, json.toString())
 
         val request = Request.Builder()
-            .url("http://10.0.2.2:3000/login") // 10.0.2.2 = localhost on Android emulator
+            .url("https://school-management-app-five-drab.vercel.app/login") // 10.0.2.2 = localhost on Android emulator
             .post(requestBody)
             .build()
 

@@ -47,7 +47,7 @@ class Post_announcements_dailog_principal : AppCompatActivity() {
     }
 
     private fun postAnnouncement(title: String, description: String) {
-        val url = "http://10.0.2.2:3000/add-announcement"
+        val url = "https://school-management-app-five-drab.vercel.app/add-announcement"
 
         val queue = Volley.newRequestQueue(this)
         val jsonBody = JSONObject()

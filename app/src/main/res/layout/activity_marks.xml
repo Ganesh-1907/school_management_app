@@ -4,6 +4,12 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <include
+        layout="@layout/student_marks_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"

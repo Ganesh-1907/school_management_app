@@ -1,71 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <LinearLayout
-        android:orientation="vertical"
+    <!-- Fixed Toolbar at the top -->
+    <include
+        layout="@layout/school_details_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp" />
 
-        <TextView
-            android:id="@+id/detailSchoolName"
+    <!-- Scrollable Content Below -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="22sp"
-            android:textStyle="bold"
-            android:paddingBottom="8dp" />
+            android:layout_height="wrap_content">
 
-        <TextView android:id="@+id/detailSchoolAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="4dp" />
+            <TextView
+                android:id="@+id/detailSchoolName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp" />
 
-        <TextView android:id="@+id/detailSchoolPhone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="4dp" />
+            <TextView android:id="@+id/detailSchoolAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp" />
 
-        <TextView android:id="@+id/detailSchoolEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="4dp" />
+            <TextView android:id="@+id/detailSchoolPhone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp" />
 
-        <TextView android:id="@+id/detailSchoolType"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="4dp" />
+            <TextView android:id="@+id/detailSchoolEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp" />
 
-        <TextView android:id="@+id/detailSchoolCategory"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="4dp" />
+            <TextView android:id="@+id/detailSchoolType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp" />
 
-        <TextView android:id="@+id/detailSchoolMedium"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="4dp" />
+            <TextView android:id="@+id/detailSchoolCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp" />
 
-        <TextView android:id="@+id/detailSchoolManagement"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="4dp" />
+            <TextView android:id="@+id/detailSchoolMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp" />
 
-        <TextView android:id="@+id/detailSchoolLevel"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="4dp" />
+            <TextView android:id="@+id/detailSchoolManagement"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp" />
 
-        <TextView android:id="@+id/detailSchoolCode"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="4dp" />
+            <TextView android:id="@+id/detailSchoolLevel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp" />
 
-        <TextView android:id="@+id/detailSchoolLocation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingBottom="4dp" />
+            <TextView android:id="@+id/detailSchoolCode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp" />
 
-    </LinearLayout>
-</ScrollView>
+            <TextView android:id="@+id/detailSchoolLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingBottom="4dp" />
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

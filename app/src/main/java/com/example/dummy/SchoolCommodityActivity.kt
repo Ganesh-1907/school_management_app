@@ -37,7 +37,7 @@ class SchoolCommodityActivity : AppCompatActivity() {
     private fun fetchCommodities(schoolId: String) {
         val client = OkHttpClient()
         val request = Request.Builder()
-            .url("http://10.0.2.2:3000/get-students-commodity/$schoolId/")
+            .url("https://school-management-app-five-drab.vercel.app/get-students-commodity/$schoolId/")
             .build()
 
         client.newCall(request).enqueue(object : Callback {

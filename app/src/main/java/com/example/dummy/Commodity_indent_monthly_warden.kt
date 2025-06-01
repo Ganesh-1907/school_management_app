@@ -80,7 +80,7 @@ class CommodityIndentMonthlyWardenActivity : AppCompatActivity() {
         )
 
         val request = Request.Builder()
-            .url("http://10.0.2.2:3000/set-student-commodity")
+            .url("https://school-management-app-five-drab.vercel.app/set-student-commodity")
             .post(body)
             .build()
 

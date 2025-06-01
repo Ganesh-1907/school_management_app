@@ -57,7 +57,7 @@ class Add_User_page_officer : AppCompatActivity() {
 
             OkHttpClient().newCall(
                 Request.Builder()
-                    .url("http://10.0.2.2:3000/add-user")
+                    .url("https://school-management-app-five-drab.vercel.app/add-user")
                     .post(body)
                     .build()
             ).enqueue(object : Callback {
