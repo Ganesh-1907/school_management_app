@@ -12,6 +12,10 @@ addOfficer();
 
 addSchools();
 
+app.get("/", (req, res) => {
+  res.send("Server is running!");
+});
+
 // user routes
 app.get('/get-users/:role', async (req, res) => {
     const { role } = req.params;
