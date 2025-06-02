@@ -39,11 +39,13 @@ class StudentHealthActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_student_health)
 
+        // Get schoolId passed via intent from previous activity
         schoolId = intent.getStringExtra("schoolId") ?: ""
         recyclerView = findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        adapter = StudentAdapter(studentList, healthStatuses)
+        // Pass schoolId to adapter so it can use it later when submitting
+        adapter = StudentAdapter(studentList, healthStatuses, schoolId)
         recyclerView.adapter = adapter
 
         findViewById<Button>(R.id.submitBtn).setOnClickListener {
@@ -118,7 +120,8 @@ class StudentHealthActivity : AppCompatActivity() {
 
     class StudentAdapter(
         private val students: List<Student>,
-        private val statuses: List<String>
+        private val statuses: List<String>,
+        private val schoolId: String
     ) : RecyclerView.Adapter<StudentAdapter.ViewHolder>() {
 
         private val selectedStatusMap = mutableMapOf<String, String>()
@@ -156,7 +159,7 @@ class StudentHealthActivity : AppCompatActivity() {
             return students.mapNotNull {
                 val selected = selectedStatusMap[it.id]
                 if (selected != null) {
-                    HealthEntry(it.id, schoolId = it.`class`, healthStatus = selected)
+                    HealthEntry(it.id, schoolId = schoolId, healthStatus = selected)
                 } else null
             }
         }
