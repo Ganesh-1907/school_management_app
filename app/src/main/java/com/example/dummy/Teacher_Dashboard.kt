@@ -53,7 +53,7 @@ class Teacher_Dashboard : AppCompatActivity() {
 
         val healthStatusCard = findViewById<androidx.cardview.widget.CardView>(R.id.card5_student_health_monitoring_teacher)
         healthStatusCard.setOnClickListener {
-            val intent = Intent(this, HealthReportsActivity::class.java)
+            val intent = Intent(this, StudentHealthActivity::class.java)
             intent.putExtra("schoolId", schoolId)
             startActivity(intent)
         }

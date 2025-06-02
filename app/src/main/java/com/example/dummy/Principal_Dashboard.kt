@@ -39,7 +39,8 @@ class Principal_Dashboard : AppCompatActivity() {
 
         val addStudentCard = findViewById<CardView>(R.id.card2_add_student_principal)
         addStudentCard.setOnClickListener {
-            val intent = Intent(this, FragmentAddNewStudentPagePrincipalBinding::class.java)
+            val intent = Intent(this, AddNewStudentPagePrincipalActivity::class.java)
+            intent.putExtra("schoolId", schoolId)
             intent.putExtra("source", "card")
             startActivity(intent)
         }

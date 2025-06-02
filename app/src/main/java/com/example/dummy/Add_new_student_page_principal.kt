@@ -1,6 +1,7 @@
 package com.example.dummy
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import okhttp3.*
@@ -31,6 +32,7 @@ class AddNewStudentPagePrincipalActivity : AppCompatActivity() {
 
         // Get schoolId from intent extras
         schoolId = intent.getStringExtra("schoolId")
+        Log.d("PrincipalDashboard", "Received schoolId: $schoolId")
 
         classSpinner = findViewById(R.id.class_spinner)
         submitButton = findViewById(R.id.add_student_submit_button_principal)

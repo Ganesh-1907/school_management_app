@@ -132,9 +132,14 @@ app.get('/get-students-health/:schoolId', async (req, res) => {
 });
 
 app.post('/set-student-health', async (req, res) => {
-    const { studentId, schoolId, healthStatus } = req.body;
-    const result = await setStudentHealth(studentId, schoolId, healthStatus);
-    res.send(result);
+    const arrayData = req.body;
+    console.log(arrayData,'arraydata')
+    await Promise.all(arrayData.map(async(student)=>{
+        const { studentId, schoolId, healthStatus } = student;
+        return await setStudentHealth(studentId, schoolId, healthStatus);
+    }))
+    
+    res.send({message: "successfully insert"});
 });
 
 // student comodity routes

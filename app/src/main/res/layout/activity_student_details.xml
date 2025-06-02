@@ -6,7 +6,7 @@
     android:padding="8dp">
 
     <!-- Include the toolbar -->
-    <include layout="@layout/school_details_toolbar"
+    <include layout="@layout/student_details_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"

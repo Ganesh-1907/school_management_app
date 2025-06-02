@@ -16,7 +16,7 @@ class SalaryActivity : AppCompatActivity() {
     private lateinit var btnSubmit: Button
 
     private val client = OkHttpClient()
-    private val schoolId = "bMIvw9HgYtpzRXwLHsee" // your schoolId here
+    private var schoolId: String = "" // your schoolId here
     private val staffList = mutableListOf<Staff>()
 
     data class Staff(val id: String, val userId: String, val name: String)
@@ -25,6 +25,7 @@ class SalaryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_salary)
 
+        schoolId = intent.getStringExtra("schoolId") ?: ""
         container = findViewById(R.id.container)
         btnSubmit = findViewById(R.id.btnSubmit)
 
