@@ -6,7 +6,7 @@
 
     <stroke
         android:width="2dp"
-        android:color="#6200EE" /> <!-- Accent color border -->
+        android:color="@color/Navy_blue" /> <!-- Accent color border -->
 
     <corners android:radius="8dp" />
 
