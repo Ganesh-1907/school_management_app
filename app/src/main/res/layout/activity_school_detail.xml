@@ -1,85 +1,276 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <!-- Fixed Toolbar at the top -->
     <include
+        android:id="@+id/schooldetailstoolbar"
         layout="@layout/school_details_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp" />
 
     <!-- Scrollable Content Below -->
-    <ScrollView
+    <androidx.cardview.widget.CardView
+        android:id="@+id/schoolCard"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:padding="16dp">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="4dp"
+        app:layout_constraintTop_toBottomOf="@id/schooldetailstoolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp">
+<!--    <ScrollView-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="1"-->
+<!--        android:padding="16dp">-->
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
+            android:layout_height="wrap_content"
+            android:padding="18dp"
+            android:layout_marginTop="10dp">
             <TextView
                 android:id="@+id/detailSchoolName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
                 android:textSize="22sp"
                 android:textStyle="bold"
-                android:paddingBottom="8dp" />
-
+                android:text="school name "
+                android:paddingBottom="8dp"
+                style="@style/Label"/>
+            <TextView
+                android:id="@+id/addressschooldetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="School Name:"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/detailSchoolName"
+                app:layout_constraintStart_toStartOf="parent"
+                style="@style/Label"
+                />
             <TextView android:id="@+id/detailSchoolAddress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="4dp" />
-
+                android:paddingBottom="4dp"
+                android:text="school adress"
+                app:layout_constraintTop_toBottomOf="@id/detailSchoolName"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/addressschooldetails"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="10dp"
+                style="@style/Value"/>
+            <TextView
+                android:id="@+id/phonenymberschooldetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone No :"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/detailSchoolAddress"
+                app:layout_constraintStart_toStartOf="parent"
+                style="@style/Label"
+                />
             <TextView android:id="@+id/detailSchoolPhone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="4dp" />
+                android:paddingBottom="4dp"
+                android:text="school phone"
+                app:layout_constraintStart_toEndOf="@id/phonenymberschooldetails"
+                android:layout_marginStart="80dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailSchoolAddress"
+                android:layout_marginTop="10dp"
+                style="@style/Value"/>
+            <TextView
+                android:id="@+id/schoolemailschooldetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="School Email :"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/detailSchoolPhone"
+                app:layout_constraintStart_toStartOf="parent"
+                style="@style/Label"/>
 
             <TextView android:id="@+id/detailSchoolEmail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="4dp" />
+                android:paddingBottom="4dp"
+                android:text="school email"
+                app:layout_constraintStart_toEndOf="@id/schoolemailschooldetails"
+                android:layout_marginStart="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailSchoolPhone"
+                android:layout_marginTop="10dp"
+                style="@style/Value"/>
+
+            <TextView
+                android:id="@+id/schooltypeschooldetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="School Type :"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/detailSchoolEmail"
+                app:layout_constraintStart_toStartOf="parent"
+                style="@style/Label"/>
 
             <TextView android:id="@+id/detailSchoolType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="4dp" />
+                android:paddingBottom="4dp"
+                android:text="school type"
+                app:layout_constraintStart_toEndOf="@id/schooltypeschooldetails"
+                android:layout_marginStart="100dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailSchoolEmail"
+                android:layout_marginTop="10dp"
+                style="@style/Value"/>
+            <TextView
+                android:id="@+id/schoolcategoryschooldetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="School Category:"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/detailSchoolType"
+                app:layout_constraintStart_toStartOf="parent"
+                style="@style/Label"
+                />
 
             <TextView android:id="@+id/detailSchoolCategory"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="4dp" />
+                android:paddingBottom="4dp"
+                android:text="school category"
+                app:layout_constraintStart_toEndOf="@id/schoolcategoryschooldetails"
+                android:layout_marginStart="120dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailSchoolType"
+                android:layout_marginTop="10dp"
+                style="@style/Value"/>
+            <TextView
+                android:id="@+id/schoolmediumschooldetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="School Medium:"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/detailSchoolCategory"
+                app:layout_constraintStart_toStartOf="parent"
+                style="@style/Label"
+                />
 
-            <TextView android:id="@+id/detailSchoolMedium"
+            <TextView
+                android:id="@+id/detailSchoolMedium"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="4dp" />
+                android:paddingBottom="4dp"
+                android:text="school medium"
+                app:layout_constraintStart_toEndOf="@id/schoolmediumschooldetails"
+                android:layout_marginStart="120dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailSchoolCategory"
+                android:layout_marginTop="10dp"
+                style="@style/Value"/>
+            <TextView
+                android:id="@+id/schoolmanagmentschooldetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="School Managment :"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/detailSchoolMedium"
+                app:layout_constraintStart_toStartOf="parent"
+                style="@style/Label"
+                />
 
             <TextView android:id="@+id/detailSchoolManagement"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="4dp" />
+                android:paddingBottom="4dp"
+                android:text="school managment"
+                app:layout_constraintStart_toEndOf="@id/schoolmanagmentschooldetails"
+                android:layout_marginStart="140dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailSchoolMedium"
+                android:layout_marginTop="10dp"/>
+
+            <TextView
+                android:id="@+id/schoollevelschooldetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="School Level :"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/detailSchoolManagement"
+                app:layout_constraintStart_toStartOf="parent"
+                style="@style/Label"
+                />
 
             <TextView android:id="@+id/detailSchoolLevel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="4dp" />
+                android:paddingBottom="4dp"
+                android:text="school level"
+                android:layout_marginStart="100dp"
+                app:layout_constraintStart_toEndOf="@id/schoollevelschooldetails"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailSchoolManagement"
+                android:layout_marginTop="10dp"
+                style="@style/Value"/>
 
-            <TextView android:id="@+id/detailSchoolCode"
+            <TextView
+                android:id="@+id/schoolcodeschooldetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="School Code :"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/detailSchoolLevel"
+                app:layout_constraintStart_toStartOf="parent"
+                style="@style/Label"/>
+
+            <TextView
+                android:id="@+id/detailSchoolCode"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="4dp" />
+                android:paddingBottom="4dp"
+                android:text="school code"
+                android:layout_marginStart="100dp"
+                app:layout_constraintStart_toEndOf="@id/schoolcodeschooldetails"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailSchoolLevel"
+                android:layout_marginTop="10dp"
+                style="@style/Value"/>
 
-            <TextView android:id="@+id/detailSchoolLocation"
+            <TextView
+                android:id="@+id/schoollocationschooldetails"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="School Location:"
+                android:layout_marginTop="10dp"
+                app:layout_constraintTop_toBottomOf="@id/detailSchoolCode"
+                app:layout_constraintStart_toStartOf="parent"
+               style="@style/Label" />
+
+            <TextView
+                android:id="@+id/detailSchoolLocation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:paddingBottom="4dp" />
-        </LinearLayout>
-    </ScrollView>
-</LinearLayout>
+                android:paddingBottom="4dp"
+                android:text="school location"
+                android:layout_marginStart="120dp"
+                app:layout_constraintStart_toEndOf="@id/schoollocationschooldetails"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/detailSchoolCode"
+                android:layout_marginTop="10dp"
+                style="@style/Value"/>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+<!--    </ScrollView>-->
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>

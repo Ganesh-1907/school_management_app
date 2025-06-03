@@ -41,17 +41,17 @@ class SchoolDetailActivity : AppCompatActivity() {
                 if (response.isSuccessful && responseBody != null) {
                     val obj = JSONObject(responseBody)
                     runOnUiThread {
-                        findViewById<TextView>(R.id.detailSchoolName).text = "Name: ${obj.getString("schoolName")}"
-                        findViewById<TextView>(R.id.detailSchoolAddress).text = "Address: ${obj.getString("schoolAddress")}"
-                        findViewById<TextView>(R.id.detailSchoolPhone).text = "Phone: ${obj.getString("schoolPhone")}"
-                        findViewById<TextView>(R.id.detailSchoolEmail).text = "Email: ${obj.getString("schoolEmail")}"
-                        findViewById<TextView>(R.id.detailSchoolType).text = "Type: ${obj.getString("schoolType")}"
-                        findViewById<TextView>(R.id.detailSchoolCategory).text = "Category: ${obj.getString("schoolCategory")}"
-                        findViewById<TextView>(R.id.detailSchoolMedium).text = "Medium: ${obj.getString("schoolMedium")}"
-                        findViewById<TextView>(R.id.detailSchoolManagement).text = "Management: ${obj.getString("schoolManagement")}"
-                        findViewById<TextView>(R.id.detailSchoolLevel).text = "Level: ${obj.getString("schoolLevel")}"
-                        findViewById<TextView>(R.id.detailSchoolCode).text = "Code: ${obj.getString("schoolCode")}"
-                        findViewById<TextView>(R.id.detailSchoolLocation).text = "Location: ${obj.getString("mandal")}, ${obj.getString("district")}, ${obj.getString("state")}, ${obj.getString("country")} - ${obj.getString("pincode")}"
+                        findViewById<TextView>(R.id.detailSchoolName).text = " ${obj.getString("schoolName")}"
+                        findViewById<TextView>(R.id.detailSchoolAddress).text = " ${obj.getString("schoolAddress")}"
+                        findViewById<TextView>(R.id.detailSchoolPhone).text = " ${obj.getString("schoolPhone")}"
+                        findViewById<TextView>(R.id.detailSchoolEmail).text = "${obj.getString("schoolEmail")}"
+                        findViewById<TextView>(R.id.detailSchoolType).text = " ${obj.getString("schoolType")}"
+                        findViewById<TextView>(R.id.detailSchoolCategory).text = "${obj.getString("schoolCategory")}"
+                        findViewById<TextView>(R.id.detailSchoolMedium).text = "${obj.getString("schoolMedium")}"
+                        findViewById<TextView>(R.id.detailSchoolManagement).text = "${obj.getString("schoolManagement")}"
+                        findViewById<TextView>(R.id.detailSchoolLevel).text = "${obj.getString("schoolLevel")}"
+                        findViewById<TextView>(R.id.detailSchoolCode).text = "${obj.getString("schoolCode")}"
+                        findViewById<TextView>(R.id.detailSchoolLocation).text = "${obj.getString("mandal")}, ${obj.getString("district")}, ${obj.getString("state")}, ${obj.getString("country")} - ${obj.getString("pincode")}"
                     }
                 } else {
                     runOnUiThread {
