@@ -20,33 +20,40 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Name: Student Name"
-            android:textSize="16sp"
+            android:textSize="20sp"
             android:textStyle="bold"
-            android:layout_marginBottom="4dp" />
+            android:textColor="@color/Navy_blue"
+            android:layout_marginBottom="12dp" />
 
         <TextView
             android:id="@+id/className"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Class: Class 1"
             android:textSize="14sp"
-            android:layout_marginBottom="4dp" />
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/Bold_Text_Color"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/phone"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Phone: 9876543210"
             android:textSize="14sp"
-            android:layout_marginBottom="4dp" />
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/Bold_Text_Color"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/address"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Address: Student Address"
             android:textSize="14sp"
-            android:layout_marginBottom="4dp" />
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/Bold_Text_Color"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/dob"
@@ -54,7 +61,9 @@
             android:layout_height="wrap_content"
             android:text="DOB: 2005-01-01"
             android:textSize="14sp"
-            android:layout_marginBottom="4dp" />
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/Bold_Text_Color"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/gender"
@@ -62,7 +71,9 @@
             android:layout_height="wrap_content"
             android:text="Gender: Male"
             android:textSize="14sp"
-            android:layout_marginBottom="4dp" />
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/Bold_Text_Color"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/motherName"
@@ -70,14 +81,18 @@
             android:layout_height="wrap_content"
             android:text="Mother: Mother Name"
             android:textSize="14sp"
-            android:layout_marginBottom="4dp" />
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/Bold_Text_Color"
+            android:textStyle="bold"/>
 
         <TextView
             android:id="@+id/fatherName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Father: Father Name"
-            android:textSize="14sp" />
+            android:textSize="14sp"
+            android:textColor="@color/Bold_Text_Color"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 

@@ -18,4 +18,6 @@
     <color name="Alice_blue">#F2F6FF</color>
     <color name="Hint_color1">#808080</color>
     <color name="Button_navy_blue">#0D2C5E</color>
+    <color name="Bold_Text_Color">#212121</color>
+    <color name="Spinner_grey_Color">#CCCCCC</color>
 </resources>
