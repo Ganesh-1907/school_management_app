@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#FAFAFA"
+    android:padding="16dp">
 
     <!-- Toolbar included at the top -->
     <include layout="@layout/commodity_indent_toolbar" />
@@ -12,45 +15,97 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:layout_marginTop="30dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp">
+            >
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Month"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:layout_marginTop="16dp" />
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp">
 
             <Spinner
                 android:id="@+id/spinnerMonth"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:prompt="@string/select_month" />
+                android:prompt="@string/select_month"
+                android:padding="8dp"
+                android:backgroundTint="#0D2C5E"/>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Item"
+                android:textSize="16sp"
+                android:textColor="#000000"
+                android:layout_marginTop="16dp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="3dp">
+
 
             <Spinner
                 android:id="@+id/spinnerItem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:prompt="@string/select_item" />
-
-            <EditText
+                android:prompt="@string/select_item"
+                android:padding="8dp"
+                android:backgroundTint="#0D2C5E"/>
+            </androidx.cardview.widget.CardView>
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="Enter Phase 1 quantity">
+                <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editPhase1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Phase 1"
                 android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <EditText
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="Enter Phase 1 quantity">
+            <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editPhase2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="Phase 2"
                 android:inputType="text" />
+            </com.google.android.material.textfield.TextInputLayout>
 
             <Button
                 android:id="@+id/btnSubmit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Submit" />
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                android:text="Submit"
+                android:layout_marginTop="24dp"
+                android:textColor="@color/white"
+                android:backgroundTint="@color/Navy_blue"
+                android:padding="12dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginEnd="20dp"
+                />
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

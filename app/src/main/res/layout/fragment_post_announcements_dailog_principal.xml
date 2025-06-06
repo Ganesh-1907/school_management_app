@@ -4,7 +4,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@color/white">
 
     <!-- Attendance toolbar included at the top -->
     <include layout="@layout/announcements_toolbar" />
@@ -17,7 +18,8 @@
         android:padding="20dp"
         android:background="@color/white"
         xmlns:tools="http://schemas.android.com/tools"
-        tools:context=".Post_announcements_dailog_principal">
+        tools:context=".Post_announcements_dailog_principal"
+        android:layout_marginTop="60dp">
 
         <!-- Title Label -->
         <TextView
