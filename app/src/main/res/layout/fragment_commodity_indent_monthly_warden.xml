@@ -6,10 +6,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FAFAFA"
-    android:padding="16dp">
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
 
     <!-- Toolbar included at the top -->
-    <include layout="@layout/commodity_indent_toolbar" />
+    <include
+        layout="@layout/commodity_indent_toolbar" />
 
     <!-- ScrollView for the form content -->
     <ScrollView
@@ -43,7 +45,7 @@
                 android:layout_height="wrap_content"
                 android:prompt="@string/select_month"
                 android:padding="8dp"
-                android:backgroundTint="#0D2C5E"/>
+                android:backgroundTint="#0D2C5E" />
             </androidx.cardview.widget.CardView>
 
             <TextView
@@ -86,7 +88,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:hint="Enter Phase 1 quantity">
+                android:hint="Enter Phase 2 quantity">
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/editPhase2"
                 android:layout_width="match_parent"

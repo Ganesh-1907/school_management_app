@@ -12,7 +12,7 @@
         layout="@layout/school_details_toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="8dp" />
+        />
 
     <!-- Scrollable Content Below -->
     <androidx.cardview.widget.CardView

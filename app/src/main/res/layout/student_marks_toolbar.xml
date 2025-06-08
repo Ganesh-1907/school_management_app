@@ -31,8 +31,12 @@
 
     <TextView
         android:id="@+id/headingText_SchoolList"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.6"
+        app:layout_constraintHeight_percent="0.6"
+        android:autoSizeMaxTextSize="40dp"
+        android:autoSizeMinTextSize="20dp"
         android:text="Student Marks"
         android:textSize="30sp"
         android:textStyle="bold"

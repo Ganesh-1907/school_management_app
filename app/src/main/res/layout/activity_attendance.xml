@@ -41,7 +41,10 @@
             android:layout_width="wrap_content"
             android:layout_height="60dp"
             android:text="Submit Attendance"
-            android:backgroundTint="@color/Navy_blue"/>
+            android:layout_gravity="center_horizontal"
+            android:backgroundTint="@color/Button_navy_blue"
+            android:textColor="@color/white"
+            android:layout_marginTop="10dp"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

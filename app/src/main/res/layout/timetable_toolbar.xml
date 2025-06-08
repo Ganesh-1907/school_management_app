@@ -33,7 +33,7 @@
         android:id="@+id/headingText_SchoolList"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Time Tables"
+        android:text="Time Table"
         android:textSize="30sp"
         android:textStyle="bold"
         android:textColor="@color/Navy_blue"
